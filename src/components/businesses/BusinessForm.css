@@ -1,0 +1,28 @@
+
+.showcase{
+    margin-bottom: 30px;
+ 
+}
+.showcase .row{
+    height: 750px;
+}
+.showcase h1{
+    font-size: 50px;
+    margin: 0;
+    padding-bottom: 20px;
+    text-decoration-color: rgb(26, 13, 212)
+
+}
+.showcase p{
+    color: #ccc;
+    margin: 0;
+}
+.showcase .showcase-content{
+    background:rgb(18, 139, 160);
+    color: black;
+    border-radius: 5px;
+    padding: 40px;
+    width: 1000px;
+    height: 750px;
+    margin : auto;
+}

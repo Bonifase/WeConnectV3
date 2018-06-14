@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 
-import '../App.css';
-import Home from './home';
+import Routes from './components/routes/routes';
+
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <Home />
-      </div>
+        <div className="App">
+          <Routes />
+         
+        </div>
     );
   }
 }

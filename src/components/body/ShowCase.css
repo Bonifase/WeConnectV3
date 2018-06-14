@@ -1,0 +1,24 @@
+#showcase{
+    background: url(../images/showcase.jpg) no-repeat center center;
+    margin-bottom: 30px;
+}
+#showcase .row{
+    height: 750px;
+}
+#showcase h1{
+    font-size: 70px;
+    margin: 0;
+    padding-bottom: 20px;
+}
+#showcase p{
+    color: #fff;
+    margin: 0;
+}
+#showcase .showcase-content{
+    color: #fff;
+    border-radius: 0px;
+    padding: 40px;
+    opacity: 1;
+    width:1400px;
+    margin : auto;
+}

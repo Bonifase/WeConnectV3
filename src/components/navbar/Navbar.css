@@ -1,0 +1,60 @@
+.navbar-brand{
+    color: rgb(47, 58, 209);
+    text-decoration-color: rgb(47, 58, 209); 
+}
+
+
+  /*nav bar*/
+  .navbar{
+    background-color: #d5eaeb;
+    border-bottom:  #73c9e6 2px solid;
+  }
+
+  .navbar-brand{
+    font-weight: bold;
+    color: white;
+    
+  }
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #d5eaeb;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: #888;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li.sr-only a, li a:hover {
+    background-color: rgb(18, 139, 160);
+    border-radius: 6px;
+    border-bottom: 3px solid  rgb(18, 139, 160);
+}
+/*form */
+.my-form{
+    width: 100%;
+
+}
+
+/*nav-tabs*/
+.nav-tabs{
+    margin-left: auto;
+    margin-right: auto;
+    display: table;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    border-bottom: 1px solid #ddd;
+    border-radius: 10px;
+}

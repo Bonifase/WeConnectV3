@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
-import Navbar from "./navbar";
-import Body from "./body";
+import Body from "../body/Body";
+
+
 
 class Home extends Component {
 	render() {
   		return (
 		    <React.Fragment>
-		
-		      <Navbar />
-		      <Body />
-		      
+		      <Body />     
 		    </React.Fragment>
   );
 }

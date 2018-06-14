@@ -1,5 +1,5 @@
 body{
-    background-color: white;
+    background: #d5eaeb;
     font-family: 'Open-sans', sans-serif;
     font-size: 17px;
     line-height: 1.5em;
@@ -14,6 +14,7 @@ body{
     border-radius: 5px;
 }
 
+
 img{
     width: 100%;
 }
@@ -25,7 +26,7 @@ img{
    
 }
 #subheader .row{
-    height: 50px;
+    height: 40px;
 }
 #subheader h2{
     font-size: 20px;
@@ -48,133 +49,6 @@ img{
    
 }
 
-  /*nav bar*/
-  .navbar{
-    background-color: #d5eaeb;
-    border-bottom:  #73c9e6 2px solid;
-  }
-
-  .navbar-brand{
-    font-weight: bold;
-    color: white;
-    
-  }
-
-  ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #d5eaeb;
-}
-
-li {
-    float: left;
-}
-
-li a {
-    display: block;
-    color: #888;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-/* Change the link color to #111 (black) on hover */
-li.sr-only a, li a:hover {
-    background-color: #73c9e6;
-    border-radius: 6px;
-    border-bottom: 3px solid   #73c9e6;
-}
-/*form */
-.my-form{
-    width: 100%;
-
-}
-#showcase{
-    background: url(./images/showcase.jpg) no-repeat center center;
-    border-bottom: 1px solid #73c9e6;
-    margin-bottom: 30px;
-}
-#showcase .row{
-    height: 300px;
-}
-#showcase h1{
-    font-size: 50px;
-    margin: 0;
-    padding-bottom: 20px;
-}
-#showcase p{
-    color: #ccc;
-    margin: 0;
-}
-#showcase .showcase-content{
-    background: #333;
-    color: #fff;
-    border-radius: 80px;
-    padding: 40px;
-    opacity: 0.5;
-    width:800px;
-    margin : auto;
-}
-/*nav-tabs*/
-.nav-tabs{
-    margin-left: auto;
-    margin-right: auto;
-    display: table;
-    margin-bottom: 20px;
-    margin-top: 20px;
-    border-bottom: 1px solid #ddd;
-    border-radius: 10px;
-}
-
-/* tab color */
-.nav-tabs>li>a {
-    background-color: #d5eaeb; 
-    border-color: white;
-    color: black;
-    border-radius: 10px;
-  }
-  
-  /* active tab color */
-  .nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
-    color: #fff;
-    background-color: #73c9e6;
-    border: 1px solid white;
-    border-radius: 10px;
-    
-  }
-  
-  /* hover tab color */
-  .nav-tabs>li>a:hover {
-    border-color: #000000;
-    background-color: #73c9e6;
-    border-radius: 10px;
-  }
-.btn{
-	background:blue;
-	padding:5px 10px;
-	color:#fff;
-	border:none;
-	border-radius:5px;
-	
-	animation-name: flash;
-	animation-duration: 1s;
-	animation-timing-function: linear;
-	animation-iteration-count: infinite;
-
-	//Firefox 1+
-	-webkit-animation-name: flash;
-	-webkit-animation-duration: 1s;
-	-webkit-animation-timing-function: linear;
-	-webkit-animation-iteration-count: infinite;
-
-	//Safari 3-4
-	-moz-animation-name: flash;
-	-moz-animation-duration: 1s;
-	-moz-animation-timing-function: linear;
-	-moz-animation-iteration-count: infinite;
-}
 
 #main-footer{
     background: #333;
