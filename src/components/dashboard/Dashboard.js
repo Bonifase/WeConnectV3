@@ -19,6 +19,7 @@ class Dashboard extends Component {
                     <div>
                         <div className="row text-center">
                             <div className="showcase-content">
+                            
                             <h1> Available Businesses</h1>
                             <p>
                             <BusinessList businesses={this.props.businesses}/>

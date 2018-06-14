@@ -1,59 +1,69 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Form, Button } from "semantic-ui-react";
-import isEmail from "validator/lib/isEmail";
-import InlineError from "../messages/InlineError";
-import Navbar from "../navbar/Navbar"
+import { connect } from "react-redux";
+import Validator from "validator";
+import SignupForm from "./SignupForm";
+import { signup } from "../../actions/users";
 
-const SignupForm = (props) => {
-  const { data, errors, loading } = props.state;
+const validate = data => {
+    const errors = {};
+    if (!Validator.isEmail(data.email)) errors.email = "Invalid email";
+    if (!data.password) errors.password = "Password can't be blank";
+
+    return errors;
+  };   
+class Signup extends React.Component {
+ 
+  state = {
+        data: {
+          username: "",
+          email: "",
+          password: ""
+        },
+        loading: false,
+        errors: {}
+      };
+    
+  onChange = e =>
+        this.setState({
+          ...this.state,
+          data: { ...this.state.data, [e.target.name]: e.target.value }
+        });
+    
+  onSubmit = e => {
+        e.preventDefault();
+        const errors = validate(this.state.data);
+        this.setState({ errors });
+        if (Object.keys(errors).length === 0) {
+          this.setState({ loading: true });
+          this.props
+          .signup(this.state.data)
+          .then(()=>{
+              this.setState({ loading: false });
+              this.props.history.push("/dashboard");
+          })
+          .catch(err =>
+            this.setState({ errors: err, loading: false })
+          );
+      }
+    };
+  render() {
     return (
-        <div>
-            <Navbar />
-            <section className="showcase">
-            <div>
-            <div className="row text-center">
-            <div className="showcase-content">
-            <h1> Sign Up Here</h1>
-                
-                <Form onSubmit={this.onSubmit} loading={loading}>
-                    <Form.Field error={!!errors.email}>
-                    <label htmlFor="email">Email</label>
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        placeholder="email@email.com"
-                        value={data.email}
-                        onChange={this.onChange}
-                    />
-                    {errors.email && <InlineError text={errors.email} />}
-                    </Form.Field>
-
-                    <Form.Field error={!!errors.password}>
-                    <label htmlFor="password">Password</label>
-                    <input
-                        type="password"
-                        id="password"
-                        name="password"
-                        value={data.password}
-                        onChange={this.onChange}
-                    />
-                    {errors.password && <InlineError text={errors.password} />}
-                    </Form.Field>
-
-                    <Button primary>Sign Up</Button>
-                </Form>
-            </div>   
-            </div> 
-            </div>   
-            </section>)    
-        </div>
+      <div>
+        <SignupForm 
+        onSubmit={this.onSubmit}
+        onChange={this.onChange}
+        state={this.state} />
+      </div>
     );
   }
+}
 
-SignupForm.propTypes = {
-  submit: PropTypes.func.isRequired
+Signup.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired
+  }).isRequired,
+  signup: PropTypes.func.isRequired
 };
 
-export default SignupForm;
+export default connect(null, { signup })(Signup);
