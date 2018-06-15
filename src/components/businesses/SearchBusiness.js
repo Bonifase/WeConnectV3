@@ -20,8 +20,8 @@ class SearchBusinessForm extends React.Component {
   };
 
   onChange = (e, data) => {
-    this.setState({ query: data.value });
-    this.props.onBookSelect(this.state.businesses[data.value]);
+    this.setState({ query: data });
+    this.props.onBusinessSelect(this.state.businesses[data]);
   };
 
   fetchOptions = () => {
@@ -78,7 +78,7 @@ class SearchBusinessForm extends React.Component {
 }
 
 SearchBusinessForm.propTypes = {
-  onBookSelect: PropTypes.func.isRequired
+  onBusinessSelect: PropTypes.func.isRequired
 };
 
 export default SearchBusinessForm;

@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Form, Button } from "semantic-ui-react";
+import { Form, Button, Message  } from "semantic-ui-react";
 import isEmail from "validator/lib/isEmail";
 import InlineError from "../messages/InlineError";
 import Navbar from "../navbar/Navbar"
@@ -17,8 +17,13 @@ const SignupForm = (props) => {
             <h1> Sign Up Here</h1>
                 
                 <Form onSubmit={props.onSubmit} loading={loading}>
-                   
-                   <Form.Field error={!!errors.username}>
+                {errors.message && (
+                        <Message negative>
+                        <Message.Header>Something went wrong</Message.Header>
+                        <p>{errors.message}</p>
+                        </Message>
+                    )}
+                <Form.Field error={!!errors.username}>
                     <label htmlFor="username">Username</label>
                     <input
                         type="text" 
