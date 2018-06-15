@@ -9,6 +9,7 @@ import About from '../about/About'
 import LoginForm from '../login/LoginForm';
 import LoginPage from '../login/LoginPage';
 import SignupPage from '../signup/Signup';
+import ForgotPasswordPage from '../login/ForgotPasswordPage';
 
 const routes = (props) => {
   return (
@@ -17,9 +18,10 @@ const routes = (props) => {
         <Route exact path="/" component = {Home} />
         <Route path="/login" component = {LoginPage} />
         <Route path="/signup" component = {Signup}  />
-        <Route path="/About" component={About} />
-        <Route path="/Dashboard" component={Dashboard} />
-        <Route path="/BusinessForm" component={BusinessForm} />
+        <Route path="/about" component={About} />
+        <Route path="/dashboard" component={Dashboard} />
+        <Route path="/businessform" component={BusinessForm} />
+        <Route path="/forgot_password" component={ForgotPasswordPage} />
       </Switch>
   );
 };

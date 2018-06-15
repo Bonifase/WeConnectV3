@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import BusinessList from '../businesses/BusinessList';
 import PropTypes from 'prop-types';
 import {fetchBusinesses} from '../../actions';
+import TopNavigationBar from '../layout/menu'
 import './Dashboard.css'
 
 
@@ -19,12 +20,12 @@ class Dashboard extends Component {
                     <div>
                         <div className="row text-center">
                             <div className="showcase-content">
-                            
-                            <h1> Available Businesses</h1>
+                            <TopNavigationBar/>
+                                                            
+                            <h2> Available Businesses</h2><br/>
                             <p>
                             <BusinessList businesses={this.props.businesses}/>
                             </p>
-                            
                             </div>   
                         </div>    
                     </div>

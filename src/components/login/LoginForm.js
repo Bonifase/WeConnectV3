@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Form, Button, Message } from "semantic-ui-react";
+import {Link} from 'react-router-dom';
 import InlineError from "../messages/InlineError";
 import Navbar from "../navbar/Navbar"
 import '../businesses/BusinessForm.css';
@@ -50,6 +51,7 @@ const LoginForm = (props) => {
           </Form.Field>
           <Button primary>Login</Button>
         </Form>
+        <Link to="/forgot_password">Forgot password?</Link>
         </div>   
     </div> 
     </div>   

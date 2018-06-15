@@ -17,6 +17,7 @@ const SignupForm = (props) => {
             <h1> Sign Up Here</h1>
                 
                 <Form onSubmit={props.onSubmit} loading={loading}>
+                   
                    <Form.Field error={!!errors.username}>
                     <label htmlFor="username">Username</label>
                     <input

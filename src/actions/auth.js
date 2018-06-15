@@ -20,3 +20,5 @@ export const logout = () => dispatch =>{
     localStorage.removeItem('weconnectJWT');
     // setAuthorizationHeader(user.token);
     dispatch(userLoggedOut());};
+export const resetPasswordRequest = ({email}) => () =>
+api.user.resetPasswordRequest(email);

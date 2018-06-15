@@ -5,6 +5,7 @@ import  './BusinessForm.css';
 import { connect } from 'react-redux';
 import { saveBusiness } from '../../actions';
 import { Redirect } from 'react-router'
+import TopNavigationBar from '../layout/menu'
 import './BusinessForm.css';
 
 class BusinessForm extends Component {
@@ -54,10 +55,11 @@ class BusinessForm extends Component {
     <div>
       <div className="row text-center">
         <div className="showcase-content">
+        <TopNavigationBar/>
           <form className={classnames('ui', 'form', { loading: this.state.loading }) } onSubmit={this.handleSubmit} >
           <h1 className="text">Add New Business</h1>
 
-          {/* {!!this.state.errors.global && <div className="ui negative message"><p>{this.state.errors.global}</p></div>} */}
+          {!!this.state.errors.global && <div className="ui negative message"><p>{this.state.errors.message}</p></div>}
 
         <div className={classnames('field' )}>
           <label htmlFor="name">Name</label>

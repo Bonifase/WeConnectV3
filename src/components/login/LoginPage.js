@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import LoginForm from "./LoginForm";
+import PropTypes from 'prop-types' 
 import Validator from "validator";
 import { connect } from 'react-redux';
+import LoginForm from "./LoginForm";
 import { login } from "../../actions/auth"; 
-import PropTypes from 'prop-types' 
+
 
 
 const validate = data => {
