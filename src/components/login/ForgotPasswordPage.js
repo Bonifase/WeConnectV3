@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import {message} from 'semantic-ui-react'
 import isEmail from "validator/lib/isEmail";
 import ForgotPasswordForm from './ForgotPasswordForm';
+import '../businesses/BusinessForm.css'
+import Navbar from "../navbar/Navbar";
 
 const validate = data => {
     const errors = {};
@@ -30,22 +32,32 @@ class ForgotPasswordPage extends Component {
         const errors = validate(this.state.data);
         this.setState({ errors });
         if (Object.keys(errors).length === 0) {
-          this.setState({ loading: true });
+          this.setState({ success: true });
           this.props
             .resetPasswordRequest(this.state.data)
             .catch(err =>
-              this.setState({ errors: err.response.data.errors, loading: false })
+              this.setState({ errors: err, loading: false })
             );
         }
       };
-    
-     
-    
-    submit = data => this.props.resetPasswordRequest(data).then(() => this.setState({ success: true }));
+
     render(){
         return (
             <div>
-                {this.state.success ? <message>Token has been genearted.</message>: <ForgotPasswordForm submit={this.submit}/>}
+                <Navbar/>
+                <section className="showcase">
+                    <div>
+                        <div className="row text-center">
+                            <div className="showcase-content">
+                                <div>  
+                                    {this.state.success ? <message>Token has been genearted.</message>: <ForgotPasswordForm onSubmit={this.onSubmit}
+                                    onChange={this.onChange}
+                                    state={this.state}/>}   
+                                </div>
+                            </div> 
+                        </div>    
+                    </div>
+                </section>
             </div>
         )
     }
