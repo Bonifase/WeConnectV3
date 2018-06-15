@@ -4,6 +4,7 @@ import { Form, Button, Message  } from "semantic-ui-react";
 import isEmail from "validator/lib/isEmail";
 import InlineError from "../messages/InlineError";
 import Navbar from "../navbar/Navbar"
+import '../businesses/BusinessForm.css'
 
 const SignupForm = (props) => {
   const { data, errors, loading } = props.state;
@@ -14,7 +15,7 @@ const SignupForm = (props) => {
             <div>
             <div className="row text-center">
             <div className="showcase-content">
-            <h1> Sign Up Here</h1>
+            <h4>Sign up here</h4>
                 
                 <Form onSubmit={props.onSubmit} loading={loading}>
                 {errors.message && (

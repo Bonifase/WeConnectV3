@@ -16,7 +16,7 @@ tr:nth-child(even) {
 }
 
 .showcase{
-    background: url(../images/showcase.jpg) no-repeat center center;
+    background: #73c9e6 2px solid;
     opacity: 1px;
     margin-bottom: 30px;
  

@@ -6,7 +6,7 @@
 
   /*nav bar*/
   .navbar{
-    background-color: #d5eaeb;
+    background-color: rgb(18, 139, 160);
     border-bottom:  #73c9e6 2px solid;
   }
 
@@ -15,22 +15,27 @@
     color: white;
     
   }
+  .nav-link{
+      text-decoration-color: black;
+      font: black;
+  }
 
   ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #d5eaeb;
+    background-color:rgb(18, 139, 160);
 }
 
 li {
     float: left;
+    color: rgb(7, 6, 6);
 }
 
 li a {
     display: block;
-    color: #888;
+    color: rgb(7, 6, 6);
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -38,9 +43,9 @@ li a {
 
 /* Change the link color to #111 (black) on hover */
 li.sr-only a, li a:hover {
-    background-color: rgb(18, 139, 160);
+    background-color: #d5eaeb;
     border-radius: 6px;
-    border-bottom: 3px solid  rgb(18, 139, 160);
+    border-bottom: 3px solid #d5eaeb;
 }
 /*form */
 .my-form{
