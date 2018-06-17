@@ -18,7 +18,8 @@ class Signup extends React.Component {
         data: {
           username: "",
           email: "",
-          password: ""
+          password: "",
+          confirm_password : ''
         },
         loading: false,
         errors: {}

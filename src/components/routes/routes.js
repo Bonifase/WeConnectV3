@@ -1,14 +1,11 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-
 import Dashboard from '../dashboard/Dashboard';
 import Home from '../home/Home';
 import Signup from '../signup/Signup';
 import BusinessForm from '../businesses/BusinessForm';
 import About from '../about/About'
-import LoginForm from '../login/LoginForm';
 import LoginPage from '../login/LoginPage';
-import SignupPage from '../signup/Signup';
 import ForgotPasswordPage from '../login/ForgotPasswordPage';
 
 const routes = (props) => {

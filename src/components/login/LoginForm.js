@@ -1,11 +1,16 @@
 import React from "react";
-import PropTypes from "prop-types";
+
 import { Form, Button, Message } from "semantic-ui-react";
 import {Link} from 'react-router-dom';
 import InlineError from "../messages/InlineError";
 import Navbar from "../navbar/Navbar"
 import '../businesses/BusinessForm.css';
 
+const linkStyle = {
+  color : 'white',
+  fontSize : '15px',
+  letterSpacing : '1px'
+};
 
 const LoginForm = (props) => {
   const { data, errors, loading } = props.state;
@@ -51,7 +56,7 @@ const LoginForm = (props) => {
           </Form.Field>
           <Button primary>Login</Button>
         </Form>
-        <Link to="/forgot_password">Forgot password?</Link>
+        <Link style={linkStyle} to="/forgot_password">Forgot password?</Link>
         </div>   
     </div> 
     </div>   
@@ -61,7 +66,6 @@ const LoginForm = (props) => {
 }
 
 LoginForm.propTypes = {
-  submit: PropTypes.func.isRequired
 };
 
 export default LoginForm;

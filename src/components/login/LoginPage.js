@@ -40,12 +40,13 @@ class LoginPage extends Component{
             .login(this.state.data)
             .then(()=>{
                 this.setState({ loading: false });
-                this.props.history.push("/dashboard");
+                this.props.history.push("///dashboard");
             })
             .catch(err =>
               this.setState({ errors: err, loading: false })
             );
         }
+        console.log("hahahahahahahahah", this.state.data)
       };
 
     render(){

@@ -1,10 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from 'react-router-dom';
 import { Form, Button, Message  } from "semantic-ui-react";
-import isEmail from "validator/lib/isEmail";
 import InlineError from "../messages/InlineError";
-import Navbar from "../navbar/Navbar"
-import '../businesses/BusinessForm.css'
+import Navbar from "../navbar/Navbar";
+import '../businesses/BusinessForm.css';
+
+
+const formInputStyle = {
+    color : 'white',
+    fontSize : '15px',
+    letterSpacing : '1px'
+};
+ 
 
 const SignupForm = (props) => {
   const { data, errors, loading } = props.state;
@@ -61,8 +69,23 @@ const SignupForm = (props) => {
                     />
                     {errors.password && <InlineError text={errors.password} />}
                     </Form.Field>
-
-                    <Button primary>Sign Up</Button>
+                    <Form.Field error={!!errors.password}>
+                            <label htmlFor='cnfpassword'> confirm password</label> 
+                                <input type='password' 
+                                    id='cnfpassword'
+                                    name='confirm_password'
+                                    placeholder='Password'
+                                    value={data.cnfpassword}
+                                    onChange={props.onChange}
+                                />      
+                    </Form.Field>
+                        <Button primary> Signup </Button>
+                        <div style={formInputStyle}>
+                        <p style={formInputStyle}>
+                         Already registered?
+                              <Link style={formInputStyle} to='/login'>Login </Link>
+                        </p>
+                        </div>
                 </Form>
             </div>   
             </div> 

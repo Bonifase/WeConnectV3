@@ -5,7 +5,6 @@ import  './BusinessForm.css';
 import { connect } from 'react-redux';
 import { saveBusiness } from '../../actions';
 import { Redirect } from 'react-router'
-import TopNavigationBar from '../layout/menu'
 import './BusinessForm.css';
 
 class BusinessForm extends Component {
@@ -39,7 +38,7 @@ class BusinessForm extends Component {
     if (this.state.location === '') errors.location = "Cant be empty";
     if (this.state.description === '') errors.description= "Cant be empty";
     this.setState({ errors });
-    const isValid = Object.keys(errors).length === 0
+
 
     if (true){
       const { name, category, location, description } = this.state;
@@ -58,7 +57,6 @@ class BusinessForm extends Component {
     <div>
       <div className="row text-center">
         <div className="showcase-content">
-        <TopNavigationBar/>
           <form className={classnames('ui', 'form', { loading: this.state.loading }) } onSubmit={this.handleSubmit} >
           <h1 className="text">Add New Business</h1>
 

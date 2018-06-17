@@ -15,10 +15,12 @@ api.user.login(credentials).then(data => {
     localStorage.weconnectJWT = data.access_token;
     // setAuthorizationHeader(user.token);
     dispatch(userLoggedIn(data));});
+   
 
 export const logout = () => dispatch =>{
     localStorage.removeItem('weconnectJWT');
     // setAuthorizationHeader(user.token);
     dispatch(userLoggedOut());};
+
 export const resetPasswordRequest = ({email}) => () =>
 api.user.resetPasswordRequest(email);
