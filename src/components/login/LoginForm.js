@@ -22,7 +22,7 @@ const LoginForm = (props) => {
       <div>
       <div className="row text-center">
       <div className="showcase-content">
-      <h3> Login Here</h3>
+      <h4> Login Here </h4>
           <Form onSubmit={props.onSubmit} loading={loading}>
           {errors.message && (
             <Message negative>

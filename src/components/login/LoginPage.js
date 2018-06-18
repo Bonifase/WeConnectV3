@@ -11,7 +11,7 @@ const validate = data => {
     const errors = {};
     if (!Validator.isEmail(data.email)) errors.email = "Invalid email";
     if (!data.password) errors.password = "Can't be blank";
-    if (!data.username) errors.username = "Can't be blank";
+    if (!data.email) errors.email = "Can't be blank";
     return errors;
   };
 
@@ -27,7 +27,7 @@ class LoginPage extends Component{
 
     onChange = e =>
       this.setState({
-        data: { ...this.state.data, [e.target.name]: e.target.value }
+        data: { ...this.state.data, [e.target.name] : e.target.value }
       });
 
     onSubmit = e => {
@@ -42,11 +42,11 @@ class LoginPage extends Component{
                 this.setState({ loading: false });
                 this.props.history.push("///dashboard");
             })
-            .catch(err =>
-              this.setState({ errors: err, loading: false })
+            .catch(err => {
+                    this.setState({ errors: {message:err.response.data.message}, loading: false });
+                }
             );
         }
-        console.log("hahahahahahahahah", this.state.data)
       };
 
     render(){
@@ -69,4 +69,4 @@ LoginPage.propTypes = {
     }).isRequired,
     login: PropTypes.func.isRequired
 }   
-export default connect(null, {login})(LoginPage);
+export default connect(null, { login })(LoginPage);

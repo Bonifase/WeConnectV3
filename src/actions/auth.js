@@ -13,8 +13,11 @@ export const userLoggedOut = () => ({
 export const login = (credentials) => dispatch => 
 api.user.login(credentials).then(data => {
     localStorage.weconnectJWT = data.access_token;
+    console.log(data)
     // setAuthorizationHeader(user.token);
     dispatch(userLoggedIn(data));});
+    
+
    
 
 export const logout = () => dispatch =>{

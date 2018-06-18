@@ -1,11 +1,19 @@
 import React, { Component } from 'react';
 import classnames from 'classnames';
-import Navbar from "../navbar/Navbar";
-import  './BusinessForm.css';
+import { Link } from 'react-router-dom'
 import { connect } from 'react-redux';
 import { saveBusiness } from '../../actions';
 import { Redirect } from 'react-router'
+import TopNavigation from './TopNavigationBar'
 import './BusinessForm.css';
+import Navbar from "../navbar/Navbar";
+
+
+const linkStyle = {
+  color : 'white',
+  fontSize : '15px',
+  letterSpacing : '1px'
+};
 
 class BusinessForm extends Component {
   state = {
@@ -53,12 +61,14 @@ class BusinessForm extends Component {
     }
   }
 	render(){
-    const form =(<section className="showcase">
+    const form =(
+    <section className="showcase">
     <div>
       <div className="row text-center">
         <div className="showcase-content">
+        <TopNavigation/>
           <form className={classnames('ui', 'form', { loading: this.state.loading }) } onSubmit={this.handleSubmit} >
-          <h1 className="text">Add New Business</h1>
+          <h4>Post a New Business</h4>
 
           {!!this.state.errors.message && <div className="ui negative message"><p>{this.state.errors.message}</p></div>}
 
@@ -99,7 +109,7 @@ class BusinessForm extends Component {
             {/* <span>{this.state.errors.description}</span> */}
         </div>
         <div className="field">
-          <button type="submit" className="ui primary button">Save</button>
+          <button type="submit" className="ui positive button">Save</button> <button className="ui primary button"><Link style={linkStyle} to="/dashboard">Cancel</Link></button>
         </div>
         </form> 
       </div>   

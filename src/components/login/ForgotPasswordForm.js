@@ -21,7 +21,7 @@ const ForgotPasswordForm = (props) => {
           />
           {errors.email && <InlineError text={errors.email} />}
         </Form.Field>
-        <Button primary>ForgotPasswordForm</Button>
+        <Button primary>Reset Password</Button>
       </Form>
     );
   }

@@ -21,8 +21,10 @@
     background:rgb(18, 139, 160);
     color: black;
     border-radius: 5px;
+    align-self: center;
     padding: 40px;
     width: 1000px;
     height: auto;
     margin : auto;
+    margin-top: 1.5cm;
 }

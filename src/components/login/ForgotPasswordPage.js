@@ -50,7 +50,7 @@ class ForgotPasswordPage extends Component {
                         <div className="row text-center">
                             <div className="showcase-content">
                                 <div>  
-                                    {this.state.success ? <message>Token has been genearted.</message>: <ForgotPasswordForm onSubmit={this.onSubmit}
+                                    {this.state.success ? <message>Click this link to reset your password:</message>: <ForgotPasswordForm onSubmit={this.onSubmit}
                                     onChange={this.onChange}
                                     state={this.state}/>}   
                                 </div>
