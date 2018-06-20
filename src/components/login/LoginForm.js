@@ -23,6 +23,9 @@ const LoginForm = (props) => {
       <div className="row text-center">
       <div className="showcase-content">
       <h4> Login Here </h4>
+      <hr/>
+      <div class="ui two column middle aligned very relaxed stackable grid">
+      <div class="column">
           <Form onSubmit={props.onSubmit} loading={loading}>
           {errors.message && (
             <Message negative>
@@ -32,6 +35,7 @@ const LoginForm = (props) => {
           )}
           <Form.Field error={!!errors.email}>
             <label htmlFor="email">Email</label>
+            <div class="ui left icon input">
             <input
               type="email"
               id="email"
@@ -40,10 +44,13 @@ const LoginForm = (props) => {
               value={data.email}
               onChange={props.onChange}
             />
+            <i class="user icon"></i>
+             </div>
             {errors.email && <InlineError text={errors.email} />}
           </Form.Field>
           <Form.Field error={!!errors.password}>
             <label htmlFor="password">Password</label>
+            <div class="ui left icon input">
             <input
               type="password"
               id="password"
@@ -52,10 +59,20 @@ const LoginForm = (props) => {
               value={data.password}
               onChange={props.onChange}
             />
+             <i class="lock icon"></i>
+        </div>
             {errors.password && <InlineError text={errors.password} />}
           </Form.Field>
           <Button primary>Login</Button>
         </Form>
+        </div>
+  <div class="center aligned column">
+    <div class="ui big green labeled icon button">
+      <i class="signup icon"></i>
+      <a href="signup">Sign Up</a>
+    </div>
+        </div>
+        </div>
         <Link style={linkStyle} to="/forgot_password">Forgot password?</Link>
         </div>   
     </div> 

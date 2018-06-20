@@ -1,11 +1,12 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 import SearchBusiness from "../businesses/SearchBusiness";
 
 const TopNavigation = ({ user, logout, hasBooks }) => (
     <div class="ui pointing menu">
-    <a class="item" href="dashboard"> 
+    <Link class="item" to="dashboard"> 
         All Businesses
-    </a>
+    </Link>
 
     <a class="item active" href="businessform">
     Post a business

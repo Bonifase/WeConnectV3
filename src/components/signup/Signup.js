@@ -45,7 +45,7 @@ class Signup extends React.Component {
               
           })
           .catch(err =>
-            this.setState({ errors: err.response, loading: false })
+            this.setState({errors: {message:err.response.data.message}, loading: false })
           );
       }
     };

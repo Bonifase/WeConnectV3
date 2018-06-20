@@ -1,5 +1,5 @@
-import { USER_LOGGED_IN, USER_LOGGED_OUT } from '../types'
-import api from '../api'
+import { USER_LOGGED_IN, USER_LOGGED_OUT } from '../types';
+import api from '../api';
 
 export const userLoggedIn = user => ({
     type:  USER_LOGGED_IN,
@@ -11,11 +11,11 @@ export const userLoggedOut = () => ({
 })
 
 export const login = (credentials) => dispatch => 
-api.user.login(credentials).then(data => {
-    localStorage.weconnectJWT = data.access_token;
-    console.log(data)
+api.user.login(credentials).then(user => {
+    localStorage.weconnectJWT = user.access_token;
+    console.log(user)
     // setAuthorizationHeader(user.token);
-    dispatch(userLoggedIn(data));});
+    dispatch(userLoggedIn(user));});
     
 
    
@@ -27,3 +27,6 @@ export const logout = () => dispatch =>{
 
 export const resetPasswordRequest = ({email}) => () =>
 api.user.resetPasswordRequest(email);
+
+export const confirmResetPassword = ({password}) => () =>
+api.user.resetPasswordRequest(password);

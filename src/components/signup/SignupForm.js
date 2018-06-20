@@ -23,8 +23,9 @@ const SignupForm = (props) => {
             <div>
             <div className="row text-center">
             <div className="showcase-content">
+            <div class="ui two column middle aligned very relaxed stackable grid">
+            <div class="column">
             <h4>Sign up here</h4>
-                
                 <Form onSubmit={props.onSubmit} loading={loading}>
                 {errors.message && (
                         <Message negative>
@@ -34,6 +35,7 @@ const SignupForm = (props) => {
                     )}
                 <Form.Field error={!!errors.username}>
                     <label htmlFor="username">Username</label>
+                    <div class="ui left icon input">
                     <input
                         type="text" 
                         id="username"
@@ -42,11 +44,14 @@ const SignupForm = (props) => {
                         value={data.username}
                         onChange={props.onChange}
                     />
+                   <i class="user icon"></i>
+                   </div>
                     {errors.username && <InlineError text={errors.username} />}
                     </Form.Field>
 
                     <Form.Field error={!!errors.email}>
                     <label htmlFor="email">Email</label>
+                    <div class="ui left icon input">
                     <input
                         type="email"
                         id="email"
@@ -55,38 +60,55 @@ const SignupForm = (props) => {
                         value={data.email}
                         onChange={props.onChange}
                     />
+                   <i class="user icon"></i>
+                   </div>
                     {errors.email && <InlineError text={errors.email} />}
                     </Form.Field>
 
                     <Form.Field error={!!errors.password}>
                     <label htmlFor="password">Password</label>
+                    <div class="ui left icon input">
                     <input
                         type="password"
                         id="password"
                         name="password"
+                        placeholder='Make it secure'
                         value={data.password}
                         onChange={props.onChange}
                     />
+                    <i class="lock icon"></i>
+                    </div>
                     {errors.password && <InlineError text={errors.password} />}
                     </Form.Field>
                     <Form.Field error={!!errors.password}>
                             <label htmlFor='cnfpassword'> confirm password</label> 
+                            <div class="ui left icon input">
                                 <input type='password' 
                                     id='cnfpassword'
                                     name='confirm_password'
-                                    placeholder='Password'
+                                    placeholder='Confirm Password'
                                     value={data.cnfpassword}
                                     onChange={props.onChange}
-                                />      
+                                /> 
+                           <i class="lock icon"></i>
+                           </div>
                     </Form.Field>
-                        <Button primary> Signup </Button>
-                        <div style={formInputStyle}>
-                        <p style={formInputStyle}>
-                         Already registered?
-                              <Link style={formInputStyle} to='/login'>Login </Link>
-                        </p>
-                        </div>
+                    <Button primary> Signup </Button>      
                 </Form>
+                </div>
+  <div class="center aligned column">
+    <div class="ui big green labeled icon button">
+      <i class="tasks icon"></i>
+      <a href="dashboard">Explore</a>
+    </div>
+                </div>
+                </div>
+                <div style={formInputStyle}>
+                 <p style={formInputStyle}>
+                         Already registered?
+                <Link style={formInputStyle} to='/login'>Login </Link>
+                </p>
+                </div>
             </div>   
             </div> 
             </div>   

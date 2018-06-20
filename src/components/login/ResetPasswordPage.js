@@ -2,22 +2,21 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {message} from 'semantic-ui-react';
 import { connect } from 'react-redux';
-import isEmail from "validator/lib/isEmail";
-import ForgotPasswordForm from './ForgotPasswordForm';
-import { resetPasswordRequest } from "../../actions/auth"; 
+import ResetPasswordForm from './ResetPasswordForm';
+import { confirmResetPassword } from "../../actions/auth"; 
 import '../businesses/BusinessForm.css';
 import Navbar from "../navbar/Navbar";
 
 const validate = data => {
     const errors = {};
-    if (!isEmail(data.email)) errors.email = "Invalid email";
+    if (!data.password) errors.password = "Can't be blank";
     return errors;
   };
-class ForgotPasswordPage extends Component {
+class ResetPasswordPage extends Component {
     state = {
         success:false,
         data: {
-          email: ""
+          password: ""
         },
         loading: false,
         errors: {}
@@ -35,10 +34,10 @@ class ForgotPasswordPage extends Component {
         this.setState({ errors });
         if (Object.keys(errors).length === 0) {
             this.setState({ loading: true });
-            this.props.resetPasswordRequest(this.state.data)
+            this.props.confirmResetPassword(this.state.data)
             .then(()=>{
             this.setState({ loading: false });
-            this.props.history.push("/reset_password");
+            this.props.history.push("/login");
                 })
                 .catch(err => {
                         this.setState({ errors: {message:err.response.data.message}, loading: false });
@@ -56,7 +55,7 @@ class ForgotPasswordPage extends Component {
                         <div className="row text-center">
                             <div className="showcase-content">
                                 <div>  
-                                    {this.state.success ? <message>Click this link to reset your password:</message>: <ForgotPasswordForm 
+                                    {this.state.success ? <message>Reset Successful</message>: <ResetPasswordForm 
                                     onSubmit={this.onSubmit}
                                     onChange={this.onChange}
                                     state={this.state}/>}   
@@ -69,7 +68,7 @@ class ForgotPasswordPage extends Component {
         )
     }
 }
-ForgotPasswordPage.PropTypes = {
+ResetPasswordPage.PropTypes = {
     resetPasswordRequest: PropTypes.func.isRequired
 }
-export default connect(null, { resetPasswordRequest })(ForgotPasswordPage)
+export default connect(null, { confirmResetPassword })(ResetPasswordPage)

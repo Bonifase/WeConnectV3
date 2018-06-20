@@ -4,15 +4,19 @@ import {connect} from 'react-redux';
 import BusinessList from '../businesses/BusinessList';
 import PropTypes from 'prop-types';
 import {fetchBusinesses} from '../../actions';
-import TopNavigationBar from '../layout/menu'
-import './Dashboard.css'
+import TopNavigationBar from '../layout/menu';
+import * as actions from '../../actions/auth';
+import './Dashboard.css';
 
 
 class Dashboard extends Component {
     componentDidMount(){
         this.props.fetchBusinesses();
+      
+    
     }
 	render() {
+        
   		return (
               <div>
                   <Navbar/>
@@ -38,7 +42,8 @@ class Dashboard extends Component {
 
 Dashboard.propTypes = {
     businesses: PropTypes.array.isRequired,
-    fetchBusinesses: PropTypes.func.isRequired
+    fetchBusinesses: PropTypes.func.isRequired,
+    
 }
 function mapStateToProps(state){
     return {

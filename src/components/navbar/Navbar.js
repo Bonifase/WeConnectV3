@@ -1,9 +1,12 @@
-import React, {Component} from 'react'
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
+import {Link} from 'react-router-dom';
 import './Navbar.css';
+import {logout} from '../../actions/auth';
 
-class NavBar extends Component {
-  render() {
-    return (
+const NavBar = ({ isAuthenticated, logout }) => (
+  <div>
       <nav className="navbar navbar-expand-lg navbar-light">
           <a className="navbar-brand" href="/">WeConnect</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,13 +29,23 @@ class NavBar extends Component {
                 </li>
               </ul>
               <ul className="nav navbar-nav ml-auto" >
-                <li><a className="nav-link" href="/signup">Register</a></li>
-                <li><a className="nav-link" href="/login">Login</a></li> 
+                <li>{isAuthenticated ? <Link className="nav-link"  to='/dashboard'> Dashboard</Link> : <a className="nav-link" href="/signup">Register</a>}</li>
+    <li>{isAuthenticated ? <a href="" className="nav-link" onClick={() => logout()}>Logout</a> :<Link className="nav-link" to="/login">Login</Link>}</li> 
               </ul>
           </div>
       </nav>
-    )
+      </div>
+);
+
+NavBar.ProtoTypes = {
+  isAuthenticated: PropTypes.bool.isRequired,
+  logout: PropTypes.func.isRequired
+};
+
+function mapStateToProps(state){
+  return {
+    isAuthenticated: !!state.user.access_token
   }
 }
 
-export default NavBar
+export default connect(mapStateToProps)(NavBar);

@@ -7,6 +7,7 @@ import BusinessForm from '../businesses/BusinessForm';
 import About from '../about/About'
 import LoginPage from '../login/LoginPage';
 import ForgotPasswordPage from '../login/ForgotPasswordPage';
+import ResetPasswordPage from '../login/ResetPasswordPage';
 
 const routes = (props) => {
   return (
@@ -19,6 +20,7 @@ const routes = (props) => {
         <Route path="/dashboard" component={Dashboard} />
         <Route path="/businessform" component={BusinessForm} />
         <Route path="/forgot_password" component={ForgotPasswordPage} />
+        <Route path="/reset_password" component={ResetPasswordPage} />
       </Switch>
   );
 };
