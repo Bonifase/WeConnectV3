@@ -43,7 +43,12 @@ class LoginPage extends Component{
                 this.props.history.push("/dashboard");
             })
             .catch(err => {
+                if(String(err).includes("Network Error")){
+                    this.setState({errors: {message: 'Service is unavailable, please try again later'},loading : false});
+                }else{
                     this.setState({ errors: {message:err.response.data.message}, loading: false });
+                }
+                    
                 }
             );
         }

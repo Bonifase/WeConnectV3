@@ -5,6 +5,8 @@ import BusinessList from '../businesses/BusinessList';
 import PropTypes from 'prop-types';
 import {fetchBusinesses} from '../../actions';
 import TopNavigationBar from '../layout/menu';
+import LoginMessage from "../messages/LoginMessage";
+// import {logout} from '../../actions/auth';
 import * as actions from '../../actions/auth';
 import './Dashboard.css';
 
@@ -16,10 +18,11 @@ class Dashboard extends Component {
     
     }
 	render() {
-        
+        const { isAuthenticated } = this.props;
   		return (
               <div>
                   <Navbar/>
+                  {/* {!isAuthenticated && <LoginMessage />} */}
                   <section className="showcase">
                     <div>
                         <div className="row text-center">
@@ -41,12 +44,14 @@ class Dashboard extends Component {
 }
 
 Dashboard.propTypes = {
+    isAuthenticated: PropTypes.bool.isRequired,
     businesses: PropTypes.array.isRequired,
     fetchBusinesses: PropTypes.func.isRequired,
-    
+       
 }
 function mapStateToProps(state){
     return {
+        isAuthenticated: !!state.user.token,
         businesses: state.businesses
     }
 }

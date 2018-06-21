@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from 'react-router-dom';
 import SearchBusiness from "../businesses/SearchBusiness";
 
-const TopNavigation = ({ user, logout, hasBooks }) => (
+const TopNavigation = ({ user, logout, hasBusiness, isAuthenticated }) => (
     <div class="ui pointing menu">
     <Link class="item" to="dashboard"> 
         All Businesses

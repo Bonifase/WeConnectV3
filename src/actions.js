@@ -18,12 +18,14 @@ export function setBusinesses(businesses){
     }
 }
 
-export function saveBusiness(data){
+export function saveBusiness(data, weconnectJWT){
+    let token = JSON.parse(localStorage.getItem('weconnectJWT'))
+    console.log('this is a token', token );
     return dispatch => {
         return fetch('http://127.0.0.1:5000/api/v2/businesses', {
             method: 'post',
             body:  JSON.stringify(data),
-            headers: {
+            headers: {"Authorization":"Bearer " + token, 
                 "content-Type":"application/json"
             }
         }).then(handleResponce)

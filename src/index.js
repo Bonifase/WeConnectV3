@@ -18,7 +18,7 @@ const store = createStore(
     )   
 );
 if (localStorage.weconnectJWT){
-    const user = { token: localStorage.weconnectJWT};
+    const user = { access_token: localStorage.weconnectJWT};
     store.dispatch(userLoggedIn(user));
 }
 
