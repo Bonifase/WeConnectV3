@@ -18,7 +18,6 @@ const TopNavigation = ({ user, logout, hasBusiness, isAuthenticated }) => (
         <div class="item">
             <div class="ui transparent icon input">
             <SearchBusiness />
-            {/* <i class="search link icon"/> */}
             </div>
         </div>
     </div>

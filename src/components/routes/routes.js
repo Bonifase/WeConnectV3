@@ -1,6 +1,7 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Dashboard from '../dashboard/Dashboard';
+import GuestDashboard from '../dashboard/GuestDashboard';
 import Home from '../home/Home';
 import Signup from '../signup/Signup';
 import BusinessForm from '../businesses/BusinessForm';
@@ -18,6 +19,7 @@ const routes = (props) => {
         <Route path="/signup" component = {Signup}  />
         <Route path="/about" component={About} />
         <Route path="/dashboard" component={Dashboard} />
+        <Route path="/home" component={GuestDashboard} />
         <Route path="/businessform" component={BusinessForm} />
         <Route path="/forgot_password" component={ForgotPasswordPage} />
         <Route path="/reset_password" component={ResetPasswordPage} />

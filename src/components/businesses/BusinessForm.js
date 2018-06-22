@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import classnames from 'classnames';
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux';
-import { saveBusiness } from '../../actions';
+import { saveBusiness, updateBusiness } from '../../actions';
 import { Redirect } from 'react-router'
 import TopNavigation from './TopNavigationBar'
 import './BusinessForm.css';
@@ -17,14 +17,31 @@ const linkStyle = {
 
 class BusinessForm extends Component {
   state = {
-    name: "",
-    category: "",
-    location: "",
-    description: "",
+    _id: this.props.business ? this.props._id: null,
+    name: this.props.business ? this.props.name:"",
+    category: this.props.business ? this.props.category:"",
+    location: this.props.business ? this.props.location:"",
+    description: this.props.business ? this.props.description:"",
     errors: {},
     loading: false,
     done: false
   }
+  componentWillReceiveProps = (nextProps) => {
+    this.setState({
+      _id: nextProps.business._id,
+      name: nextProps.business.name,
+      category: nextProps.business.category,
+      location: nextProps.business.location,
+      description: nextProps.business.description
+    });
+  }
+  componentDidMount = () => {
+    if (this.props.params._id){
+      this.props.fetchBusiness(this.props.params._id);
+    }
+    
+  }
+
   handleChange = (e) => {
     if (!!this.state.errors[e.target.name]){
       let errors = Object.assign({}, this.state.errors);
@@ -49,8 +66,17 @@ class BusinessForm extends Component {
 
 
     if (true){
-      const { name, category, location, description } = this.state;
+      const { _id, name, category, location, description } = this.state;
       this.setState({ loading: true })
+      if(_id){
+        this.props.updateBusiness({ name, category, location, description }).then(()=>{
+          this.setState({ loading: false });
+          this.props.history.push("/dashboard");
+        })
+        .catch(err =>
+          this.setState({ errors: err, loading: false })
+        );
+      }else{
       this.props.saveBusiness({ name, category, location, description }).then(()=>{
         this.setState({ loading: false });
         this.props.history.push("/dashboard");
@@ -58,8 +84,9 @@ class BusinessForm extends Component {
     .catch(err =>
       this.setState({ errors: err, loading: false })
     );
-    }
-  }
+     }
+   }
+ }
 	render(){
     const form =(
     <section className="showcase">
@@ -124,4 +151,12 @@ class BusinessForm extends Component {
 			)
 	}
 }
-export default connect(null, { saveBusiness })(BusinessForm)
+function mapStateToProps(state, props){
+  if(props.params._id){
+    return{
+      business: state.businesses.find(item => item._id === props.params._id)
+    }
+  }
+  return {business: null};
+}
+export default connect(mapStateToProps, { saveBusiness, updateBusiness })(BusinessForm)

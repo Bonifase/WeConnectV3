@@ -62,3 +62,9 @@ img{
     margin: auto;
     text-align: center;
 }
+@media screen and (min-width: 1px) {
+.modal {
+      width: 550px;
+      margin: 0 0 0 -275px;
+    }
+  }

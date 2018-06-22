@@ -12,7 +12,7 @@ const about = (props) => {
                             <div className="showcase-content">
                                 <div>  
                                 <h2>About This Application</h2>
-                                   <p>This app is for keeping the list of Businesses that one has interacted with.</p> 
+                                   <p>A platform that brings businesses and individuals together.</p> 
                                 </div>
                             </div> 
                         </div>    

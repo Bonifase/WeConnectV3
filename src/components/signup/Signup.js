@@ -41,7 +41,7 @@ class Signup extends React.Component {
           .signup(this.state.data)
           .then(()=>{
               this.setState({ loading: false });
-              this.props.history.push("/dashboard");
+              this.props.history.push("/login");
               
           })
           .catch(err =>
