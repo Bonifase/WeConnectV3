@@ -8,6 +8,7 @@ import TopNavigationBar from "../layout/menu";
 import LoginMessage from "../messages/LoginMessage";
 // import {logout} from '../../actions/auth';
 import * as actions from "../../actions/auth";
+import FlashMessagesList from "../messages/FlashMessagesList";
 import "./Dashboard.css";
 
 class Dashboard extends Component {
@@ -24,6 +25,7 @@ class Dashboard extends Component {
           <div>
             <div className="row text-center">
               <div className="showcase-content">
+                <FlashMessagesList />
                 <TopNavigationBar />
 
                 <h2> Available Businesses</h2>
