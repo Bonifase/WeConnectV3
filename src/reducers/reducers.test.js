@@ -1,7 +1,7 @@
-import reducers from '../../reducers';
+// import reducers from '../../reducers';
 
-test('reducers', () => {
-  let state;
-  state = reducers(undefined, {});
-  expect(state).toEqual({businesses:[]});
-});
+// test('reducers', () => {
+//   let state;
+//   state = reducers(undefined, {});
+//   expect(state).toEqual({businesses:[]});
+// });

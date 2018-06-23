@@ -57,7 +57,7 @@ export function updateBusiness(data, weconnectJWT) {
       }
     })
       .then(handleResponce)
-      .then(data => dispatch(businessUpdated(data.business)));
+      .then(data => dispatch(businessUpdated));
   };
 }
 export function fetchBusinesses() {
@@ -71,6 +71,6 @@ export function fetchBusiness(id) {
   return dispatch => {
     fetch("http://127.0.0.1:5000/api/v2/businesses/${id}")
       .then(res => res.json())
-      .then(data => dispatch(businessFetched(data.business)));
+      .then(data => dispatch(businessFetched(data.businesses)));
   };
 }

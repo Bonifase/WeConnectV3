@@ -6,5 +6,3 @@ export const signup = data => dispatch =>
     localStorage.weconnectJWT = user.access_token;
     dispatch(userLoggedIn(user));
   });
-  
-  
