@@ -13,7 +13,7 @@ const formInputStyle = {
 };
 
 const SignupForm = props => {
-  const { data, errors, loading } = props.state;
+  const { data, errors, loading, addFlashMessage } = props.state;
   return (
     <div>
       <Navbar />
@@ -120,10 +120,6 @@ const SignupForm = props => {
       </section>)
     </div>
   );
-};
-
-SignupForm.propTypes = {
-  submit: PropTypes.func.isRequired
 };
 
 export default SignupForm;
