@@ -5,8 +5,6 @@ import BusinessList from "../businesses/BusinessList";
 import PropTypes from "prop-types";
 import { fetchBusinesses } from "../../actions";
 import TopNavigationBar from "../layout/menu";
-import LoginMessage from "../messages/LoginMessage";
-// import {logout} from '../../actions/auth';
 import * as actions from "../../actions/auth";
 import FlashMessagesList from "../messages/FlashMessagesList";
 import "./Dashboard.css";
