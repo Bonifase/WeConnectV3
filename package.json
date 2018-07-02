@@ -54,8 +54,8 @@
     "heroku-postbuild": "npm run build",
     "prebuild": "npm run build:clean",
     "lint": "eslint src",
-    "precommit": "lint-staged",
-    "test:coverage": "jest --coverage --coverageReporters=text-lcov | coveralls"
+    "precommit": "lint-staged"
+
   },
   "lint-staged": {
     "src/**/*.{js,jsx,json,css}": [
