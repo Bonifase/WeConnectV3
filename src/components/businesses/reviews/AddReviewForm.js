@@ -20,6 +20,7 @@ const linkStyle = {
   letterSpacing: "1px"
 };
 //this is a component for adding reviews
+//
 class AddReviewForm extends Component {
   state = {
     description: "",
@@ -51,7 +52,7 @@ class AddReviewForm extends Component {
     this.setState({ errors });
 
     if (true) {
-      console.log(this.state.props);
+      console.log("props", this.state.props);
       const { description, reviewbody } = this.state;
       this.setState({ loading: true });
       this.props
@@ -80,13 +81,23 @@ class AddReviewForm extends Component {
                 })}
                 onSubmit={this.handleSubmit}
               >
-                <h4>Add a business review</h4>
+                <h4>Add a business reviews</h4>
 
                 {!!this.state.errors.message && (
                   <div className="ui negative message">
                     <p>{this.state.errors.message}</p>
                   </div>
                 )}
+                <div className={classnames("field")}>
+                  <label htmlFor="author">Author:</label>
+                  <input
+                    name="author"
+                    // value={author}
+                    onChange={this.handleChange}
+                    id="author"
+                  />
+                  <span>{this.state.errors.author}</span>
+                </div>
 
                 <div className={classnames("field")}>
                   <label htmlFor="description">Enter your review below:</label>
@@ -120,7 +131,6 @@ class AddReviewForm extends Component {
 }
 function mapStateToProps(state, props) {
   if (props.match.params._id) {
-    console.log(props.match.params._id);
     return {
       business: state.businesses.find(
         item => item._id === props.match.params._id
