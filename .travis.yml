@@ -2,7 +2,11 @@ language: node_js
 
 node_js: 
 - stable
-install:
-- npm install
+before_install:
+  - npm install -g npm
+
 script:
-- npm run test:coverage
+  - npm run test:coverage
+
+after_script:
+  - npm install coveralls && npm run coveralls
