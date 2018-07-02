@@ -5,7 +5,6 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { saveBusiness, updateBusiness, fetchBusiness } from "../../actions";
 import { Redirect } from "react-router";
-import TopNavigationBar from "../layout/menu";
 import { addFlashMessage } from "../../actions/FlashMessages";
 import "./BusinessForm.css";
 
@@ -64,7 +63,6 @@ class BusinessForm extends Component {
     this.setState({ errors });
 
     if (true) {
-      console.log("edit", this.state);
       const { _id, name, category, location, description } = this.state;
       this.setState({ loading: true });
       this.props
@@ -75,10 +73,10 @@ class BusinessForm extends Component {
             type: "success",
             text: "Business updated successfully!"
           });
-          this.props.history.push("/businesses");
+          // this.props.history.push("/businesses");
         })
         .catch(err =>
-          this.setState({ errors: err.response.message, loading: false })
+          this.setState({ errors: err.response.message.data, loading: false })
         );
     }
   };
@@ -98,9 +96,15 @@ class BusinessForm extends Component {
                   >
                     <h4>Edit this Business</h4>
 
-                    {!!this.state.errors.message && (
+                    {/* {!!this.state.errors.message && (
                       <div className="ui negative message">
                         <p>{this.state.errors.message}</p>
+                      </div>
+                    )} */}
+
+                    {!!this.props.error && (
+                      <div className="ui negative message">
+                        <p>{this.props.error}</p>
                       </div>
                     )}
 
@@ -167,7 +171,8 @@ class BusinessForm extends Component {
 }
 function mapStateToProps(state, props) {
   return {
-    business: state.business
+    business: state.business,
+    error: state.error
   };
 }
 BusinessForm.propTypes = {

@@ -1,3 +1,4 @@
+import axios from "axios";
 export const SET_BUSINESSES = "SET_BUSINESSES";
 export const BUSINESS_UPDATED = "BUSINESS_UPDATED";
 export const BUSINESS_FETCHED = "BUSINESS_FETCHED";
@@ -13,6 +14,13 @@ function handleResponce(response) {
     error.response = response;
     throw error;
   }
+}
+
+export function errorOccured(error) {
+  return {
+    type: "ERROR_OCCURED",
+    error
+  };
 }
 
 export function setBusinesses(businesses) {
@@ -69,16 +77,20 @@ export function saveBusiness(data, weconnectJWT) {
 }
 export function updateBusiness(data, weconnectJWT) {
   let token = JSON.parse(localStorage.getItem("weconnectJWT"));
-  console.log("this is a token", data);
+  console.log("this is a token", token);
   return dispatch => {
-    return fetch(`http://127.0.0.1:5000/api/v2/businesses/${data._id}`, {
+    return axios({
       method: "PUT",
+      url: `http://127.0.0.1:5000/api/v2/businesses/${data._id}`,
       body: JSON.stringify(data),
       headers: {
         Authorization: "Bearer " + token,
         "content-Type": "application/json"
       }
-    }).then(data => dispatch(businessUpdated(data)));
+    })
+      .then(handleResponce)
+      .then(data => dispatch(businessUpdated(data.message)))
+      .catch(error => dispatch(errorOccured(error.response.data.msg)));
   };
 }
 export function deleteBusiness(id, weconnectJWT) {

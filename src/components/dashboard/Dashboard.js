@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import BusinessList from "../businesses/BusinessList";
 import PropTypes from "prop-types";
+import { Comment } from "semantic-ui-react";
 import { fetchBusinesses, deleteBusiness } from "../../actions";
 import TopNavigationBar from "../layout/menu";
 import FlashMessagesList from "../messages/FlashMessagesList";
@@ -18,8 +19,10 @@ class Dashboard extends Component {
           <div className="row text-center">
             <div className="showcase-content">
               <FlashMessagesList />
+              <Comment.Metadata>
+                <div>You are logged in as {this.props.user}</div>
+              </Comment.Metadata>
               <TopNavigationBar />
-
               <h2> Reviewed Businesses </h2>
               <br />
               <br />
@@ -44,7 +47,8 @@ Dashboard.propTypes = {
 function mapStateToProps(state) {
   return {
     isAuthenticated: !!state.user.token,
-    businesses: state.businesses
+    businesses: state.businesses,
+    user: state.user.username
   };
 }
 export default connect(

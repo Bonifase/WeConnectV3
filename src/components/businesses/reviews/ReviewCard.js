@@ -3,14 +3,11 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Comment } from "semantic-ui-react";
 
-const ReviewCard = ({ isAuthenticated, review, business }) => (
+const ReviewCard = ({ isAuthenticated, user, review, business }) => (
   <Comment.Group>
     <Comment>
       <Comment.Content>
-        <Comment.Author as="a">Author</Comment.Author>
-        <Comment.Metadata>
-          <div>Date reviewed:</div>
-        </Comment.Metadata>
+        <Comment.Author as="a">Authored by {user}</Comment.Author>
         <Comment.Text>{review.body}</Comment.Text>
       </Comment.Content>
     </Comment>
@@ -23,7 +20,8 @@ ReviewCard.ProtoTypes = {
 
 function mapStateToProps(state) {
   return {
-    isAuthenticated: !!state.user.access_token
+    isAuthenticated: !!state.user.access_token,
+    user: state.user.username
   };
 }
 export default connect(mapStateToProps)(ReviewCard);

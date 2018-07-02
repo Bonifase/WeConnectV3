@@ -89,24 +89,14 @@ class AddReviewForm extends Component {
                 )}
 
                 <div className={classnames("field")}>
-                  <label htmlFor="description">Author</label>
+                  <label htmlFor="description">Enter your review below:</label>
                   <input
                     name="description"
                     value={this.state.description}
                     onChange={this.handleChange}
                     id="description"
                   />
-                  <span>{this.state.errors.title}</span>
-                </div>
-                <div className={classnames("field")}>
-                  <label htmlFor="reviewbody">Review</label>
-                  <input
-                    name="reviewbody"
-                    value={this.state.reviewbody}
-                    onChange={this.handleChange}
-                    id="reviewbody"
-                  />
-                  <span>{this.state.errors.reviewbody}</span>
+                  <span>{this.state.errors.description}</span>
                 </div>
 
                 <div className="field">
@@ -134,7 +124,8 @@ function mapStateToProps(state, props) {
     return {
       business: state.businesses.find(
         item => item._id === props.match.params._id
-      )
+      ),
+      user: state.user.username
     };
   }
   return { business: null };

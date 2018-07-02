@@ -19,7 +19,7 @@ function BusinessCard({ isAuthenticated, reviews, business, deleteBusiness }) {
               <div className="event">
                 <div className="content">
                   <div className="summary">
-                    <a>Category:</a> {business.Business_Name}
+                    <a>Category:</a> {business.Business_category}
                   </div>
                 </div>
               </div>
