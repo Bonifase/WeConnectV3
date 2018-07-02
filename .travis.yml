@@ -8,5 +8,6 @@ before_install:
 script:
   - npm run test:coverage
 
-after_script:
-  - npm install coveralls && npm run coveralls
+after_success:
+  - COVERALLS_REPO_TOKEN=$coveralls_repo_token 
+  - npm run coveralls
