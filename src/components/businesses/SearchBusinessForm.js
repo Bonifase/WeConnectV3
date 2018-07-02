@@ -13,12 +13,11 @@ class SearchBusinessForm extends React.Component {
 
   onBusinessSelect = business => {
     this.setState({ business });
-
+    console.log(business._id);
     axios
       .get(`http://127.0.0.1:5000/api/v2/businesses/${business._id}`)
       .then(res => res.data.name)
       .then(name => this.setState({ business: { ...business, name } }));
-    console.log(business.name);
   };
 
   onSearchChange = (e, data) => {
@@ -31,12 +30,12 @@ class SearchBusinessForm extends React.Component {
 
   onChange = (e, data) => {
     this.setState({ query: data.value });
-    this.props.onBusinessSelect(this.state.businesses[data.value]);
+    this.onBusinessSelect(this.state.businesses[data.value]);
   };
 
   fetchOptions = () => {
-    if (!this.state.query) return;
-    this.setState({ loading: true });
+    console.log(this.state.query.searchQuery);
+    if (!this.state.query.searchQuery) return;
     this.setState({ loading: true });
     axios
       .get(
@@ -49,11 +48,11 @@ class SearchBusinessForm extends React.Component {
         const options = [];
         const businessesHash = {};
         businesses.forEach(business => {
-          businessesHash[business._id] = business;
+          businessesHash[business.Business_name] = business;
           options.push({
-            id: business._id,
-            value: business._id,
-            text: business.Business_Name
+            key: business._id,
+            value: business.name,
+            text: business.name
           });
         });
         this.setState({ loading: false, options, businesses: businessesHash });
@@ -66,7 +65,7 @@ class SearchBusinessForm extends React.Component {
         <Dropdown
           search
           fluid
-          placeholder="Search for a business by name"
+          placeholder="Search for a business by title"
           value={this.state.query}
           onSearchChange={this.onSearchChange}
           options={this.state.options}
@@ -78,8 +77,8 @@ class SearchBusinessForm extends React.Component {
   }
 }
 
-SearchBusinessForm.propTypes = {
-  onBusinessSelect: PropTypes.func.isRequired
-};
+// SearchBusinessForm.propTypes = {
+//   onBusinessSelect: PropTypes.func.isRequired
+// };
 
 export default SearchBusinessForm;

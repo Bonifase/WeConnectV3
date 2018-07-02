@@ -2,7 +2,6 @@ import React from "react";
 import { Form, Button, Message } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import InlineError from "../messages/InlineError";
-import Navbar from "../navbar/Navbar";
 import "../businesses/BusinessForm.css";
 import FlashMessagesList from "../messages/FlashMessagesList";
 
@@ -17,7 +16,6 @@ const LoginForm = props => {
 
   return (
     <div>
-      <Navbar />
       <section className="showcase">
         <div>
           <div className="row text-center">
@@ -25,18 +23,17 @@ const LoginForm = props => {
               <FlashMessagesList />
               <h4> Login Here </h4>
               <hr />
-              <div class="ui two column middle aligned very relaxed stackable grid">
-                <div class="column">
+              <div className="ui two column middle aligned very relaxed stackable grid">
+                <div className="column">
                   <Form onSubmit={props.onSubmit} loading={loading}>
                     {errors.message && (
                       <Message negative>
-                        <Message.Header>Something went wrong</Message.Header>
-                        <p>{errors.message}</p>
+                        <Message.Header>{errors.message}</Message.Header>
                       </Message>
                     )}
                     <Form.Field error={!!errors.email}>
                       <label htmlFor="email">Email</label>
-                      <div class="ui left icon input">
+                      <div className="ui left icon input">
                         <input
                           type="email"
                           id="email"
@@ -51,7 +48,7 @@ const LoginForm = props => {
                     </Form.Field>
                     <Form.Field error={!!errors.password}>
                       <label htmlFor="password">Password</label>
-                      <div class="ui left icon input">
+                      <div className="ui left icon input">
                         <input
                           type="password"
                           id="password"
@@ -69,14 +66,14 @@ const LoginForm = props => {
                     <Button primary>Login</Button>
                   </Form>
                 </div>
-                <div class="center aligned column">
-                  <div class="ui big green labeled icon button">
-                    <i class="signup icon" />
+                <div className="center aligned column">
+                  <div className="ui big green labeled icon button">
+                    <i className="signup icon" />
                     <a href="signup">Sign Up</a>
                   </div>
                 </div>
               </div>
-              <Link style={linkStyle} to="/forgot_password">
+              <Link style={linkStyle} to="/forgot-password">
                 Forgot password?
               </Link>
             </div>

@@ -1,37 +1,32 @@
 import React, { Component } from "react";
-import Navbar from "../navbar/Navbar";
 import { connect } from "react-redux";
 import BusinessList from "../businesses/BusinessList";
 import PropTypes from "prop-types";
-import { fetchBusinesses } from "../../actions";
+import { fetchBusinesses, deleteBusiness } from "../../actions";
 import TopNavigationBar from "../layout/menu";
-import * as actions from "../../actions/auth";
 import FlashMessagesList from "../messages/FlashMessagesList";
 import "./Dashboard.css";
 
 class Dashboard extends Component {
-  componentDidMount() {
+  componentWillMount() {
     this.props.fetchBusinesses();
   }
   render() {
-    const { isAuthenticated } = this.props;
     return (
       <div>
-        <Navbar />
-        {/* {!isAuthenticated && <LoginMessage />} */}
         <section className="showcase">
-          <div>
-            <div className="row text-center">
-              <div className="showcase-content">
-                <FlashMessagesList />
-                <TopNavigationBar />
+          <div className="row text-center">
+            <div className="showcase-content">
+              <FlashMessagesList />
+              <TopNavigationBar />
 
-                <h2> Available Businesses</h2>
-                <br />
-                <p>
-                  <BusinessList businesses={this.props.businesses} />
-                </p>
-              </div>
+              <h2> Reviewed Businesses </h2>
+              <br />
+              <br />
+              <BusinessList
+                businesses={this.props.businesses}
+                deleteBusiness={this.props.deleteBusiness}
+              />
             </div>
           </div>
         </section>
@@ -43,7 +38,8 @@ class Dashboard extends Component {
 Dashboard.propTypes = {
   isAuthenticated: PropTypes.bool.isRequired,
   businesses: PropTypes.array.isRequired,
-  fetchBusinesses: PropTypes.func.isRequired
+  fetchBusinesses: PropTypes.func.isRequired,
+  deleteBusiness: PropTypes.func.isRequired
 };
 function mapStateToProps(state) {
   return {
@@ -53,5 +49,5 @@ function mapStateToProps(state) {
 }
 export default connect(
   mapStateToProps,
-  { fetchBusinesses }
+  { fetchBusinesses, deleteBusiness }
 )(Dashboard);

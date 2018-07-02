@@ -1,9 +1,7 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { Form, Button, Message } from "semantic-ui-react";
 import InlineError from "../messages/InlineError";
-import Navbar from "../navbar/Navbar";
 import "../businesses/BusinessForm.css";
 
 const formInputStyle = {
@@ -13,10 +11,9 @@ const formInputStyle = {
 };
 
 const SignupForm = props => {
-  const { data, errors, loading, addFlashMessage } = props.state;
+  const { data, errors, loading } = props.state;
   return (
     <div>
-      <Navbar />
       <section className="showcase">
         <div>
           <div className="row text-center">
@@ -90,7 +87,7 @@ const SignupForm = props => {
                           id="cnfpassword"
                           name="confirm_password"
                           placeholder="Confirm Password"
-                          value={data.cnfpassword}
+                          value={data.confirmpassword}
                           onChange={props.onChange}
                         />
                         <i class="lock icon" />

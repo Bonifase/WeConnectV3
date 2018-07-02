@@ -1,12 +1,20 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { Dropdown, Menu } from "semantic-ui-react";
-import SearchBusiness from "../businesses/SearchBusiness";
 
 const TopNavigation = ({ user, logout, isAuthenticated }) => (
   <Menu>
-    <Menu.Item>Home</Menu.Item>
+    {isAuthenticated ? (
+      <Link className="item" to="/businesses">
+        Dashboard
+      </Link>
+    ) : (
+      <Link className="item" to="/businesses">
+        All Busisesses
+      </Link>
+    )}
     <Dropdown text="Filter Busisesses" pointing className="link item">
       <Dropdown.Menu>
         <Dropdown.Item>
@@ -22,24 +30,14 @@ const TopNavigation = ({ user, logout, isAuthenticated }) => (
       </Dropdown.Menu>
     </Dropdown>
     {isAuthenticated ? (
-      <a class="item" href="businesses">
-        Post a business
-      </a>
+      <Link className="item" to="/add-business">
+        Add a business
+      </Link>
     ) : (
-      <a class="item" href="login">
-        Post a business
-      </a>
+      <Link className="item" to="/login">
+        Login to Post a Business
+      </Link>
     )}
-    <Menu.Item>Contact Us</Menu.Item>
-    <div class="right menu">
-      <div class="right menu">
-        <div class="item">
-          <div class="ui transparent icon input">
-            <SearchBusiness />
-          </div>
-        </div>
-      </div>
-    </div>
   </Menu>
 );
 TopNavigation.ProtoTypes = {

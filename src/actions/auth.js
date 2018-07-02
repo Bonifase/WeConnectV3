@@ -1,4 +1,4 @@
-import { USER_LOGGED_IN, USER_LOGGED_OUT } from "../types";
+import { USER_LOGGED_IN, USER_LOGGED_OUT, LINK_GENERATED } from "../types";
 import api from "../api";
 
 export const userLoggedIn = user => ({
@@ -8,6 +8,11 @@ export const userLoggedIn = user => ({
 
 export const userLoggedOut = () => ({
   type: USER_LOGGED_OUT
+});
+
+export const linkGenerated = resetLink => ({
+  type: LINK_GENERATED,
+  resetLink
 });
 
 export const login = credentials => dispatch =>
@@ -22,8 +27,12 @@ export const logout = () => dispatch => {
   dispatch(userLoggedOut());
 };
 
-export const resetPasswordRequest = ({ email }) => () =>
-  api.user.resetPasswordRequest(email);
+export const resetPasswordRequest = ({ email }) => dispatch =>
+  api.user.resetPasswordRequest(email).then(resetLink => {
+    const { reset_link } = resetLink;
+    localStorage.setItem("resetLink", JSON.stringify(reset_link));
+    dispatch(linkGenerated(resetLink));
+  });
 
-export const confirmResetPassword = ({ password }) => () =>
-  api.user.resetPasswordRequest(password);
+export const confirmResetPassword = ({ newpassword }) => () =>
+  api.user.confirmResetPassword(newpassword);

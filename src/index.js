@@ -7,7 +7,6 @@ import App from "./App";
 import { createStore, applyMiddleware, compose } from "redux";
 import { Provider } from "react-redux";
 import rootReducer from "./rootReducer";
-// import { composeWithDevTools } from "redux-devtools-extension";
 import { userLoggedIn } from "./actions/auth";
 
 const store = createStore(

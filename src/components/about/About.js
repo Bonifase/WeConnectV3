@@ -1,25 +1,22 @@
-import React from 'react';
-import Navbar from "../navbar/Navbar";
-import '../businesses/BusinessForm.css';
+import React from "react";
+import "../businesses/BusinessForm.css";
 
-const about = (props) => {
-    return (
-        <div>
-            <Navbar/>
-            <section className="showcase">
-                    <div>
-                        <div className="row text-center">
-                            <div className="showcase-content">
-                                <div>  
-                                <h2>About This Application</h2>
-                                   <p>A platform that brings businesses and individuals together.</p> 
-                                </div>
-                            </div> 
-                        </div>    
-                    </div>
-            </section>    
+const About = () => {
+  return (
+    <section className="showcase">
+      <div className="row text-center">
+        <div className="showcase-content">
+          <h2>About This Application</h2>
+          <p>
+            WeConnect provides a platform that brings businesses and individuals
+            together. This platform creates awareness for businesses and gives
+            the users the ability to write reviews about the businesses they
+            have interacted with.
+          </p>
         </div>
-    );
-  };
-  
-  export default about;
+      </div>
+    </section>
+  );
+};
+
+export default About;
