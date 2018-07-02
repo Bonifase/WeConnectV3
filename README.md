@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/Bonifase/WeConnectV3.svg?branch=master)](https://travis-ci.org/Bonifase/WeConnectV3) [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com) [![Javascript](https://badges.frapsoft.com/javascript/code/javascript.svg?v=101)](https://github.com/ellerbrock/javascript-badges/)
+[![Build Status](https://travis-ci.org/Bonifase/WeConnectV3.svg?branch=develop)](https://travis-ci.org/Bonifase/WeConnectV3)
 
 # Login Flow
 
