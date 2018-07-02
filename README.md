@@ -34,7 +34,7 @@ The boilerplate comes with a basic folder structure to keep the CSS files organi
 
 - `components`: Component specific styling, e.g. buttons, modals,...
 
-- `layout`: Global layouts, e.g. article, homepage,...
+- `layout`: Global layouts, e.g. businesses, reviews homepage,...
 
 ## JS
 
@@ -51,52 +51,6 @@ The folder structure of the JS files reflects how [Redux](https://github.com/gae
 - `reducers`: Reducers manage the state of this app, basically a simplified implementation of Stores in Flux. For an introduction to reducers, watch [this talk](https://www.youtube.com/watch?v=xsSnOQynTHs) by @gaearon.
 
 - `utils`: Utility files.
-
-## Opinionated features
-
-### Web Fonts
-
-If you simply use web fonts in your project, the page will stay blank until these fonts are downloaded. That means a lot of waiting time in which users could already read the content.
-
-[FontFaceObserver](https://github.com/bramstein/fontfaceobserver) adds a `js-<font-name>-loaded` class to the `body` when the fonts have loaded. You should specify an initial `font-family` with save fonts, and a `.js-<font-name>-loaded` `font-family` which includes your web font.
-
-#### Adding a new font
-
-1.  Add the `@font-face` declaration to `base/_fonts.css`.
-
-2.  In `base/_base.css`, specify your initial `font-family` in the `body` tag with only save fonts. In the `body.js-<font-name>-loaded` tag, specify your `font-family` stack with your web font.
-
-3.  In `js/app.js` add a `<font-name>Observer` for your font.
-
-### Offline access
-
-Using a `ServiceWorker` and the `AppCache`, the application is cached for offline usage. To cache a file, add it to the `urlsToCache` variable in the `serviceworker.js` file.
-
-Once you run locally you will need to terminate the serviceworker when running another app in the same localhost port, to terminate the serviceworker visit `chrome://inspect/#service-workers` find the path to your localhost and terminate the worker. You might need to stop the worker if terminating wasn't enough `chrome://serviceworker-internals` then find the path to your localhost and stop/unregister.
-
-### Add To Homescreen
-
-On Chrome for Android (soon hopefully more browsers), users can add a webpage to the homescreen. Combined with offline caching, this means the app can be used exactly like a native application.
-
-### Images in the HTML file(s)
-
-Adding images to the HTML is a bit of a pain right now as webpack only goes through the JavaScript file. Add the image to your HTML file how you always would:
-
-```HTML
-<!-- Normal Image -->
-<img src="img/yourimg.png" />
-<!-- Meta tags -->
-<meta property="og:image" content="img/yourimg.png" />
-<!-- ... -->
-```
-
-If you simply do this, webpack will not transfer the images to the build folder. To get webpack to transfer them, you have to import them with the file loader in your JavaScript somewhere, e.g.:
-
-```JavaScript
-import 'file?name=[name].[ext]!../img/yourimg.png';
-```
-
-Then webpack will correctly transfer the image to the build folder.
 
 ## License
 
