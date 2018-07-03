@@ -85,8 +85,11 @@ function BusinessCard({ isAuthenticated, reviews, business, deleteBusiness }) {
                           >
                             Edit
                           </Link>
-                          <div>
-                            <ConfirmDeleteBusiness />
+                          <div
+                            className="ui basic button red"
+                            onClick={() => deleteBusiness(business._id)}
+                          >
+                            Delete
                           </div>
                         </div>
                       </div>
