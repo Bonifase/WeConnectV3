@@ -65,7 +65,7 @@ export function saveBusiness(data, weconnectJWT) {
   let token = JSON.parse(localStorage.getItem("weconnectJWT"));
   console.log("this is a token", token);
   return dispatch => {
-    return fetch("http://127.0.0.1:5000/api/v2/businesses", {
+    return fetch("https://weconnectv2.herokuapp.com/api/v2/businesses", {
       method: "post",
       body: JSON.stringify(data),
       headers: {
@@ -81,7 +81,7 @@ export function updateBusiness(data, weconnectJWT) {
   return dispatch => {
     return axios({
       method: "PUT",
-      url: `http://127.0.0.1:5000/api/v2/businesses/${data._id}`,
+      url: `https://weconnectv2.herokuapp.com/api/v2/businesses/${data._id}`,
       body: JSON.stringify(data),
       headers: {
         Authorization: "Bearer " + token,
@@ -97,7 +97,7 @@ export function deleteBusiness(id, weconnectJWT) {
   let token = JSON.parse(localStorage.getItem("weconnectJWT"));
   console.log("this is a id", id);
   return dispatch => {
-    return fetch(`http://127.0.0.1:5000/api/v2/businesses/${id}`, {
+    return fetch(`https://weconnectv2.herokuapp.com/api/v2/businesses/${id}`, {
       method: "delete",
       headers: {
         Authorization: "Bearer " + token,
@@ -111,14 +111,14 @@ export function deleteBusiness(id, weconnectJWT) {
 
 export function fetchBusinesses() {
   return dispatch => {
-    fetch("http://127.0.0.1:5000/api/v2/businesses")
+    fetch("https://weconnectv2.herokuapp.com/api/v2/businesses")
       .then(res => res.json())
       .then(data => dispatch(setBusinesses(data.businesses)));
   };
 }
 export function fetchBusiness(id) {
   return dispatch => {
-    fetch(`http://127.0.0.1:5000/api/v2/businesses/${id}`)
+    fetch(`https://weconnectv2.herokuapp.com/api/v2/businesses/${id}`)
       .then(res => res.json())
       .then(data => dispatch(businessFetched(data.business)));
   };
@@ -126,7 +126,7 @@ export function fetchBusiness(id) {
 export function addReview(data, _id) {
   let token = JSON.parse(localStorage.getItem("weconnectJWT"));
   return dispatch => {
-    return fetch(`http://127.0.0.1:5000/api/v2/${_id}/reviews`, {
+    return fetch(`https://weconnectv2.herokuapp.com/api/v2/${_id}/reviews`, {
       method: "post",
       body: JSON.stringify(data),
       headers: {
@@ -141,7 +141,7 @@ export function addReview(data, _id) {
 export function fetchReviews(_id) {
   console.log("this is a token", _id);
   return dispatch => {
-    fetch(`http://127.0.0.1:5000/api/v2/${_id}/reviews`)
+    fetch(`https://weconnectv2.herokuapp.com/api/v2/${_id}/reviews`)
       .then(res => res.json())
       .then(data => dispatch(setReviews(data.Reviews)));
   };
