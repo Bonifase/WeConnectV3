@@ -69,15 +69,18 @@ class BusinessForm extends Component {
         .updateBusiness({ _id, name, category, location, description })
         .then(() => {
           this.setState({ loading: false });
-          this.props.addFlashMessage({
-            type: "success",
-            text: "Business updated successfully!"
-          });
-          // this.props.history.push("/businesses");
+          if (!this.props.update_error) {
+            this.props.addFlashMessage({
+              type: "success",
+              text: "Business updated successfully!"
+            });
+            this.props.history.push("/businesses");
+          }
         })
-        .catch(err =>
-          this.setState({ errors: err.response.message.data, loading: false })
-        );
+        .catch(err => {
+          console.log("erroreerererer", err);
+          this.setState({ errors: this.props.update_error, loading: false });
+        });
     }
   };
   render() {
@@ -102,9 +105,9 @@ class BusinessForm extends Component {
                       </div>
                     )} */}
 
-                    {!!this.props.error && (
+                    {!!this.props.update_error && (
                       <div className="ui negative message">
-                        <p>{this.props.error}</p>
+                        <p>{this.props.update_error}</p>
                       </div>
                     )}
 
@@ -172,7 +175,7 @@ class BusinessForm extends Component {
 function mapStateToProps(state, props) {
   return {
     business: state.business,
-    error: state.error
+    update_error: state.error
   };
 }
 BusinessForm.propTypes = {

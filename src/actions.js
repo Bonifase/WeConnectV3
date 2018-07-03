@@ -77,20 +77,27 @@ export function saveBusiness(data, weconnectJWT) {
 }
 export function updateBusiness(data, weconnectJWT) {
   let token = JSON.parse(localStorage.getItem("weconnectJWT"));
-  console.log("this is a token", token);
+  console.log("this is a token", data);
   return dispatch => {
     return axios({
       method: "PUT",
       url: `https://weconnectv2.herokuapp.com/api/v2/businesses/${data._id}`,
-      body: JSON.stringify(data),
+      data: JSON.stringify(data),
       headers: {
         Authorization: "Bearer " + token,
         "content-Type": "application/json"
       }
     })
-      .then(handleResponce)
       .then(data => dispatch(businessUpdated(data.message)))
-      .catch(error => dispatch(errorOccured(error.response.data.msg)));
+      .catch(error => {
+        dispatch(
+          errorOccured(
+            error.response.data.msg
+              ? error.response.data.msg
+              : error.response.data.message
+          )
+        );
+      });
   };
 }
 export function deleteBusiness(id, weconnectJWT) {
@@ -113,7 +120,12 @@ export function fetchBusinesses() {
   return dispatch => {
     fetch("https://weconnectv2.herokuapp.com/api/v2/businesses")
       .then(res => res.json())
-      .then(data => dispatch(setBusinesses(data.businesses)));
+      .then(data => {
+        let businesses = data.businesses;
+        if (!businesses) businesses = [];
+
+        dispatch(setBusinesses(businesses));
+      });
   };
 }
 export function fetchBusiness(id) {

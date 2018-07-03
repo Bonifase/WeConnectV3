@@ -50,7 +50,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "jest",
+    "test": "jest --coverage --coverageReporters=text/lcov | coveralls",
     "eject": "react-scripts eject",
     "heroku-postbuild": "npm run build",
     "prebuild": "npm run build:clean",

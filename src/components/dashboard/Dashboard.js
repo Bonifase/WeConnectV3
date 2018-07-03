@@ -20,7 +20,11 @@ class Dashboard extends Component {
             <div className="showcase-content">
               <FlashMessagesList />
               <Comment.Metadata>
-                <div>You are logged in as {this.props.user}</div>
+                {this.props.isAuthenticated ? (
+                  <div>You are logged in as {this.props.user}</div>
+                ) : (
+                  <div>Login to unlock awesomeness</div>
+                )}
               </Comment.Metadata>
               <TopNavigationBar />
               <h2> Reviewed Businesses </h2>
@@ -45,8 +49,9 @@ Dashboard.propTypes = {
   deleteBusiness: PropTypes.func.isRequired
 };
 function mapStateToProps(state) {
+  console.log("the whole state is ", state);
   return {
-    isAuthenticated: !!state.user.token,
+    isAuthenticated: !!state.user.access_token,
     businesses: state.businesses,
     user: state.user.username
   };
