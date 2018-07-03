@@ -3,7 +3,6 @@ import { userLoggedIn } from "./auth";
 
 export const signup = data => dispatch =>
   api.user.signup(data).then(user => {
-    localStorage.bookwormJWT = user.token;
+    localStorage.weconnectJWT = user.access_token;
     dispatch(userLoggedIn(user));
   });
-  

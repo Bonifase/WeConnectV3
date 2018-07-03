@@ -1,0 +1,17 @@
+footer.footer {
+  text-align: center;
+  margin-top: 70px;
+  border-top: 1px solid #e5e5e5;
+  background: rgb(18, 139, 160);
+}
+
+.ui.footer.segment {
+  /* margin: 5em 0em 0em; */
+  /* padding: .5em 0em; */
+  background: rgb(18, 139, 160);
+  border-top: 50px solid white;
+}
+
+.ui.container {
+  background: black;
+}

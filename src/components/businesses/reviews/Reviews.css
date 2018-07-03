@@ -1,0 +1,25 @@
+.reviews.ui.four.cards {
+  flex-flow: column;
+  width: 100%;
+}
+
+.ui.comments {
+  width: 100%;
+  display: flex;
+  text-align: left;
+  max-width: 100%;
+}
+
+.ui.comments .comment {
+  width: 100%;
+}
+
+.showcase-content .reviews {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+.showcase-content form {
+  /* width: 65%; */
+}

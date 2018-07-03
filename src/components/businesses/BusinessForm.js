@@ -1,114 +1,187 @@
-import React, { Component } from 'react';
-import classnames from 'classnames';
-import Navbar from "../navbar/Navbar";
-import  './BusinessForm.css';
-import { connect } from 'react-redux';
-import { saveBusiness } from '../../actions';
-import { Redirect } from 'react-router'
-import './BusinessForm.css';
+import React, { Component } from "react";
+import classnames from "classnames";
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { saveBusiness, updateBusiness, fetchBusiness } from "../../actions";
+import { Redirect } from "react-router";
+import { addFlashMessage } from "../../actions/FlashMessages";
+import "./BusinessForm.css";
+
+const linkStyle = {
+  color: "white",
+  fontSize: "15px",
+  letterSpacing: "1px"
+};
 
 class BusinessForm extends Component {
   state = {
-    title: "",
-    category: "",
-    location: "",
-    description: "",
+    _id: this.props.business ? this.props._id : null,
+    name: this.props.business ? this.props.name : "",
+    category: this.props.business ? this.props.category : "",
+    location: this.props.business ? this.props.location : "",
+    description: this.props.business ? this.props.description : "",
     errors: {},
     loading: false,
     done: false
+  };
+  componentWillReceiveProps = nextProps => {
+    this.setState({
+      _id: nextProps.business._id,
+      name: nextProps.business.Name,
+      category: nextProps.business.Category,
+      location: nextProps.business.Location,
+      description: nextProps.business.Description
+    });
+  };
+  componentDidMount() {
+    if (this.props.match.params._id) {
+      this.props.fetchBusiness(this.props.match.params._id);
+    }
   }
-  handleChange = (e) => {
-    if (!!this.state.errors[e.target.name]){
+
+  handleChange = e => {
+    if (!!this.state.errors[e.target.name]) {
       let errors = Object.assign({}, this.state.errors);
       delete errors[e.target.name];
-      this.setState({[e.target.name]: e.target.value,
+      this.setState({
+        [e.target.name]: e.target.value,
         errors
-    });
-    } else{
-      this.setState({[e.target.name]: e.target.value})
+      });
+    } else {
+      this.setState({ [e.target.name]: e.target.value });
     }
-    
-  }
-  handleSubmit = (e) => {
+  };
+  handleSubmit = e => {
     e.preventDefault();
 
-    // let errors = {}
-    // if (this.state.title === '') errors.title = "Cant be empty";
-    // if (this.state.category === '') errors.category = "Cant be empty";
-    // if (this.state.location === '') errors.location = "Cant be empty";
-    // if (this.state.description === '') errors.description= "Cant be empty";
-    // this.setState({ errors });
-    // const isValid = Object.keys(errors).length === 0
+    let errors = {};
+    if (this.state.name === "") errors.name = "Cant be empty";
+    if (this.state.category === "") errors.category = "Cant be empty";
+    if (this.state.location === "") errors.location = "Cant be empty";
+    if (this.state.description === "") errors.description = "Cant be empty";
+    this.setState({ errors });
 
-    if (true){
-      const { title, category, location, description } = this.state;
-      this.setState({ loading: true })
-      this.props.saveBusiness({ title, category, location, description }).then(
-        () => {},
-        (err) => err.response.json().then(({errors}) => this.setState({errors, loading: false}))
-      );
+    if (true) {
+      const { _id, name, category, location, description } = this.state;
+      this.setState({ loading: true });
+      this.props
+        .updateBusiness({ _id, name, category, location, description })
+        .then(() => {
+          this.setState({ loading: false });
+          if (!this.props.update_error) {
+            this.props.addFlashMessage({
+              type: "success",
+              text: "Business updated successfully!"
+            });
+            this.props.history.push("/businesses");
+          }
+        })
+        .catch(err => {
+          console.log("erroreerererer", err);
+          this.setState({ errors: this.props.update_error, loading: false });
+        });
     }
+  };
+  render() {
+    const form = (
+      <section className="showcase">
+        <div>
+          <div className="row text-center">
+            <div className="showcase-content">
+              <div class="ui two column middle aligned very relaxed stackable grid">
+                <div class="column">
+                  <form
+                    className={classnames("ui", "form", {
+                      loading: this.state.loading
+                    })}
+                    onSubmit={this.handleSubmit}
+                  >
+                    <h4>Edit this Business</h4>
+
+                    {/* {!!this.state.errors.message && (
+                      <div className="ui negative message">
+                        <p>{this.state.errors.message}</p>
+                      </div>
+                    )} */}
+
+                    {!!this.props.update_error && (
+                      <div className="ui negative message">
+                        <p>{this.props.update_error}</p>
+                      </div>
+                    )}
+
+                    <div className={classnames("field")}>
+                      <label htmlFor="name">Name</label>
+                      <input
+                        name="name"
+                        value={this.state.name}
+                        onChange={this.handleChange}
+                        id="title"
+                      />
+                      <span>{this.state.errors.name}</span>
+                    </div>
+                    <div className={classnames("field")}>
+                      <label htmlFor="category">Category</label>
+                      <input
+                        name="category"
+                        value={this.state.category}
+                        onChange={this.handleChange}
+                        id="category"
+                      />
+                      <span>{this.state.errors.category}</span>
+                    </div>
+                    <div className={classnames("field")}>
+                      <label htmlFor="location">Location</label>
+                      <input
+                        name="location"
+                        value={this.state.location}
+                        onChange={this.handleChange}
+                        id="location"
+                      />
+                      <span>{this.state.errors.location}</span>
+                    </div>
+                    <div className={classnames("field")}>
+                      <label htmlFor="description">Description</label>
+                      <input
+                        name="description"
+                        value={this.state.description}
+                        onChange={this.handleChange}
+                        id="description"
+                      />
+                      <span>{this.state.errors.description}</span>
+                    </div>
+                    <div className="field">
+                      <button type="submit" className="ui positive button">
+                        Save
+                      </button>{" "}
+                      <button className="ui primary button">
+                        <Link style={linkStyle} to="/businesses">
+                          Cancel
+                        </Link>
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+    return <div>{this.state.done ? <Redirect to="/businesses" /> : form}</div>;
   }
-	render(){
-    const form =(<section className="showcase">
-    <div>
-      <div className="row text-center">
-        <div className="showcase-content">
-          <form className={classnames('ui', 'form', { loading: this.state.loading }) } onSubmit={this.handleSubmit} >
-          <h1 className="text">Add New Business</h1>
-
-          {/* {!!this.state.errors.global && <div className="ui negative message"><p>{this.state.errors.global}</p></div>} */}
-
-        <div className={classnames('field' )}>
-          <label htmlFor="name">Name</label>
-          <input
-            name="title"
-            value={this.state.name}
-            onChange={this.handleChange}
-            id="title"/>
-            {/* <span>{this.state.errors.title}</span> */}
-        </div>
-        <div className={classnames('field')}>
-          <label htmlFor="category">Category</label>
-          <input
-            name="category"
-            value={this.state.category}
-            onChange={this.handleChange}
-            id="category"/>
-            {/* <span>{this.state.errors.category}</span> */}
-        </div>
-        <div className={classnames('field')}>
-          <label htmlFor="location">Location</label>
-          <input
-            name="location"
-            value={this.state.location}
-            onChange={this.handleChange}
-            id="location"/>
-            {/* <span>{this.state.errors.location}</span> */}
-        </div>
-        <div className={classnames('field')}>
-          <label htmlFor="description">Description</label>
-          <input
-            name="description"
-            value={this.state.description}
-            onChange={this.handleChange}
-            id="description"/>
-            {/* <span>{this.state.errors.description}</span> */}
-        </div>
-        <div className="field">
-          <button type="submit" className="ui primary button">Save</button>
-        </div>
-        </form> 
-      </div>   
-      </div>    
-    </div>
-    </section>)
-		return(
-      <div>
-        <Navbar />
-        { this.state.done? <Redirect to="/dashboard"/> : form }
-      </div>
-			)
-	}
 }
-export default connect(null, { saveBusiness })(BusinessForm)
+function mapStateToProps(state, props) {
+  return {
+    business: state.business,
+    update_error: state.error
+  };
+}
+BusinessForm.propTypes = {
+  addFlashMessage: PropTypes.func.isRequired
+};
+export default connect(
+  mapStateToProps,
+  { saveBusiness, updateBusiness, fetchBusiness, addFlashMessage }
+)(BusinessForm);

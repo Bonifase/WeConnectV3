@@ -1,25 +1,31 @@
-.App {
-  text-align: center;
+.StickyHeader,
+.StickyFooter {
+  /* flex: 0 0 auto; */
+  background: red;
+  width: 100%;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.StickyFooter {
+  position: fixed;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
+.StickyContent {
+  /* flex: 1 1 auto; */
+  overflow-y: scroll;
+  background: white;
+  height: calc(100vh - 165px);
+}
+
+.three.wide.column {
+  height: 25px;
+}
+
+.navbar-brand {
+  font-weight: bold;
   color: white;
 }
 
-.App-title {
-  font-size: 1.5em;
+.nav-link {
+  text-decoration-color: white;
+  font: white;
 }
-
-.App-intro {
-  font-size: large;
-}
-
-

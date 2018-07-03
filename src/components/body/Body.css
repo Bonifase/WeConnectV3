@@ -1,37 +1,42 @@
 h2 {
-    font-size: 1.5rem;
-}
-#showcase{
-    background: url(../images/showcase.jpg) no-repeat center center;
-    margin-bottom: 30px;
-    border-bottom: 1px solid #73c9e6;
-    margin-bottom: 30px;
-}
-#showcase .row{
-    height: 750px;
-}
-#showcase h1{
-    font-size: 70px;
-    margin: 0;
-    padding-bottom: 20px;
-}
-#showcase p{
-    color: #fff;
-    margin: 0;
-}
-#showcase .showcase-content{
-    color: #fff;
-    border-radius: 0px;
-    padding: 40px;
-    opacity: 1;
-    width:1400px;
-    margin : auto;
+  font-size: 1.5rem;
 }
 
-.btn{
-	background-color: rgb(47, 58, 209);
-	padding:5px 10px;
-	color:#fff;
-	border:none;
-	border-radius:5px;
+#showcase1 {
+  background: #d5eaeb;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #73c9e6;
+  margin-bottom: 30px;
+}
+
+#showcase .row {
+  height: 750px;
+}
+
+#showcase h1 {
+  font-size: 70px;
+  margin: 0;
+  padding-bottom: 20px;
+}
+
+#showcase p {
+  color: #fff;
+  margin: 0;
+}
+
+#showcase .showcase-content {
+  color: #fff;
+  border-radius: 0px;
+  padding: 40px;
+  opacity: 1;
+  width: 1400px;
+  margin: auto;
+}
+
+.btn {
+  background-color: rgb(47, 58, 209);
+  padding: 5px 10px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
 }

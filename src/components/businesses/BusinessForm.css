@@ -1,28 +1,39 @@
+.showcase {
+  margin-bottom: 30px;
+}
 
-.showcase{
-    margin-bottom: 30px;
- 
+.showcase .row {
+  height: 750px;
 }
-.showcase .row{
-    height: 750px;
-}
-.showcase h1{
-    font-size: 50px;
-    margin: 0;
-    padding-bottom: 20px;
-    text-decoration-color: rgb(26, 13, 212)
 
+.showcase h3 {
+  font-size: 50px;
+  margin: 0;
+  padding-bottom: 20px;
+  text-decoration-color: rgb(26, 13, 212);
 }
-.showcase p{
-    color: #ccc;
-    margin: 0;
+
+.showcase p {
+  color: #ccc;
+  margin: 0;
 }
-.showcase .showcase-content{
-    background:rgb(18, 139, 160);
-    color: black;
-    border-radius: 5px;
-    padding: 40px;
-    width: 1000px;
-    height: 750px;
-    margin : auto;
+
+.showcase .showcase-content {
+  background: rgb(18, 139, 160);
+  border-radius: 5px;
+  align-self: center;
+  padding: 40px;
+  width: 1000px;
+  height: auto;
+  margin: auto;
+  margin-top: 1.5cm;
+}
+
+.modal {
+  background: rgb(18, 139, 160);
+  border-radius: 5px;
+  width: 500;
+  height: 300;
+  margin: 0 auto;
+  padding: 30;
 }

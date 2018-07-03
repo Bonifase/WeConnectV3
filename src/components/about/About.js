@@ -1,25 +1,22 @@
-import React from 'react';
-import Navbar from "../navbar/Navbar";
+import React from "react";
+import "../businesses/BusinessForm.css";
 
-const about = (props) => {
-    return (
-        <div>
-            <Navbar/>
-               <section id="subheader">
-                      
-                      <div class="row">
-                          <div class="subheader-content">
-                              <h2>About This Application</h2>
-                          </div>   
-                      </div>       
-                </section>
-                <div class="container text-center">
-                  <p>This app is for keeping the list of Businesses that one has interacted with.</p>
-                  <p>The author of this application has not implemented any database yet. Feel free to contact him at <a href="https://web.facebook.com/Bonieeee">orwabonifase</a> for any suggestion on how to improve this app. </p>
-          
-                </div>
+const About = () => {
+  return (
+    <section className="showcase">
+      <div className="row text-center">
+        <div className="showcase-content">
+          <h2>About This Application</h2>
+          <p>
+            WeConnect provides a platform that brings businesses and individuals
+            together. This platform creates awareness for businesses and gives
+            the users the ability to write reviews about the businesses they
+            have interacted with.
+          </p>
         </div>
-    );
-  };
-  
-  export default about;
+      </div>
+    </section>
+  );
+};
+
+export default About;
