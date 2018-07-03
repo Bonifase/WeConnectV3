@@ -1,8 +1,8 @@
 [![Build Status](https://travis-ci.org/Bonifase/WeConnectV3.svg?branch=develop)](https://travis-ci.org/Bonifase/WeConnectV3) [![Coverage Status](https://coveralls.io/repos/github/Bonifase/WeConnectV3/badge.svg?branch=develop)](https://coveralls.io/github/Bonifase/WeConnectV3?branch=develop)
 
-# Login Flow
+# WeConnect App
 
-This application demonstrates what a React.js based register/login workflow might look like on the Frontend. The app thus uses Redux, react-router, ServiceWorker, AppCache, bcrypt and lots more.
+WeConnect provides a platform that brings businesses and individuals together. This platform creates awareness for businesses and gives the users the ability to write reviews about the businesses they have interacted with. The app uses ReactJS, Redux, react-router and lots more. Live site is at https://weconnectwebapp.herokuapp.com/
 
 ---
 
@@ -28,14 +28,6 @@ This application demonstrates what a React.js based register/login workflow migh
 
 The CSS modules found in the `css` subfolders all get imported into the `main.css` file, which get inlined and minified into the `compiled.css` file. To add/change the styling, either write the CSS into the appropriate module or make a new one and `@import` it in the `main.css` file at the appropriate place.
 
-### Folder Structure
-
-The boilerplate comes with a basic folder structure to keep the CSS files organised. This is what the folders are for:
-
-- `components`: Component specific styling, e.g. buttons, modals,...
-
-- `layout`: Global layouts, e.g. businesses, reviews homepage,...
-
 ## JS
 
 All files that are `import`ed/`require`d somewhere get compiled into one big file at build time. (`build/bundle.js`) Webpack automatically optimizes your JavaScript with `UglifyJS`, so you do not have to worry about that.
@@ -46,7 +38,7 @@ The folder structure of the JS files reflects how [Redux](https://github.com/gae
 
 - `actions`: Actions get dispatched with this/these utility module(s)
 
-- `components`: The main JS folder. All the React components are in this folder, with pages (routes) saved in the `pages` subfolder. E.g. a navigation component `Nav.react.js`
+- `components`: The main JS folder. All the React components are in this folder, with pages (routes) saved in the `pages` subfolder. E.g. a navigation component `Navbar.js`
 
 - `reducers`: Reducers manage the state of this app, basically a simplified implementation of Stores in Flux. For an introduction to reducers, watch [this talk](https://www.youtube.com/watch?v=xsSnOQynTHs) by @gaearon.
 
