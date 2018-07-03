@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/Bonifase/WeConnectV3.svg?branch=develop)](https://travis-ci.org/Bonifase/WeConnectV3)
+[![Build Status](https://travis-ci.org/Bonifase/WeConnectV3.svg?branch=develop)](https://travis-ci.org/Bonifase/WeConnectV3) [![Coverage Status](https://coveralls.io/repos/github/Bonifase/WeConnectV3/badge.svg?branch=master)](https://coveralls.io/github/Bonifase/WeConnectV3?branch=master)
 
 # Login Flow
 
