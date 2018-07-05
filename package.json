@@ -87,5 +87,8 @@
   },
   "node": {
     "global": true
+  },
+  "jest": {
+    "scriptPreprocessor": "<rootDir>/node_modules/jest-css-modules"
   }
 }
