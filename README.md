@@ -8,11 +8,12 @@ WeConnect provides a platform that brings businesses and individuals together. T
 
 ## Features
 
-- Using [**react-hot-loader**](https://github.com/gaearon/react-hot-loader), your changes in the CSS and JS get reflected in the app instantly without refreshing the page. That means that the **current application state persists** even when you change something in the underlying code! For a very good explanation and demo watch Dan Abramov himself [talking about it at react-europe](https://www.youtube.com/watch?v=xsSnOQynTHs).
-
-- [**Redux**](https://github.com/rackt/redux) is a much better implementation of a flux–like, unidirectional data flow. Redux makes actions composable, reduces the boilerplate code and makes hot–reloading possible in the first place. For a good overview of redux check out the talk linked above or the [official documentation](https://gaearon.github.io/redux/)!
-
-- [**react-router**](https://github.com/rackt/react-router) is used for routing in this application. react-router makes routing really easy to do and takes care of a lot of the work.
+- Users can `create an account` and `log in`
+- Authenticated Users can `register a business`.
+- Only the user that creates the business can `update and delete a business`
+- Users can `view businesses`.
+- Users can `give reviews about a business`.
+- Users can `search for businesses based on business location or business category`.
 
 ## Getting started
 

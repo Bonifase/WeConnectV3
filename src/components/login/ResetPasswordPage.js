@@ -1,11 +1,10 @@
 import React, { Component } from "react";
+import axios from "axios";
 import PropTypes from "prop-types";
-import { message } from "semantic-ui-react";
 import { connect } from "react-redux";
 import ResetPasswordForm from "./ResetPasswordForm";
-import { confirmResetPassword } from "../../actions/auth";
+import { addFlashMessage } from "../../actions/FlashMessages";
 import "../businesses/BusinessForm.css";
-import Navbar from "../navbar/Navbar";
 
 const validate = data => {
   const errors = {};
@@ -34,10 +33,14 @@ class ResetPasswordPage extends Component {
     this.setState({ errors });
     if (Object.keys(errors).length === 0) {
       this.setState({ loading: true });
-      this.props
-        .confirmResetPassword(this.state.data)
+      axios
+        .post(`https://weconnectv2.herokuapp.com${this.props.resetLink}`, {})
         .then(() => {
           this.setState({ loading: false });
+          this.props.addFlashMessage({
+            type: "success",
+            text: "Reset password was successfully. Login"
+          });
           this.props.history.push("/login");
         })
         .catch(err => {
@@ -57,15 +60,11 @@ class ResetPasswordPage extends Component {
             <div className="row text-center">
               <div className="showcase-content">
                 <div>
-                  {this.state.success ? (
-                    <message>Reset Successful</message>
-                  ) : (
-                    <ResetPasswordForm
-                      onSubmit={this.onSubmit}
-                      onChange={this.onChange}
-                      state={this.state}
-                    />
-                  )}
+                  <ResetPasswordForm
+                    onSubmit={this.onSubmit}
+                    onChange={this.onChange}
+                    state={this.state}
+                  />
                 </div>
               </div>
             </div>
@@ -75,10 +74,19 @@ class ResetPasswordPage extends Component {
     );
   }
 }
+
 ResetPasswordPage.PropTypes = {
-  resetPasswordRequest: PropTypes.func.isRequired
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired
+  }).isRequired,
+  addFlashMessage: PropTypes.func.isRequired
 };
+function mapStateToProps(state) {
+  return {
+    resetLink: state.user.data.reset_link
+  };
+}
 export default connect(
-  null,
-  { confirmResetPassword }
+  mapStateToProps,
+  { addFlashMessage }
 )(ResetPasswordPage);
