@@ -9,6 +9,9 @@ export default function businesses(state = [], action = {}) {
   switch (action.type) {
     case SET_BUSINESSES:
       return action.businesses;
+
+    case BUSINESS_UPDATED:
+      return state;
     default:
       return state;
 
@@ -25,10 +28,5 @@ export default function businesses(state = [], action = {}) {
       } else {
         return [...state, action.business];
       }
-    case BUSINESS_UPDATED:
-      return state.map(item => {
-        if (item._id === action.business._id) return action.business;
-        return item;
-      });
   }
 }

@@ -39,10 +39,10 @@ const NavBar = ({ isAuthenticated, logout }) => (
         <ul className="nav navbar-nav ml-auto">
           <li>
             {isAuthenticated ? (
-              <Link className="nav-link" to="/businesses">
+              <a className="nav-link" href="/businesses">
                 {" "}
                 Dashboard
-              </Link>
+              </a>
             ) : (
               <Link className="nav-link" to="/signup">
                 <button type="submit" class="button1">

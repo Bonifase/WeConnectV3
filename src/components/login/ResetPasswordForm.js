@@ -13,8 +13,8 @@ const ResetPasswordForm = props => {
         <label htmlFor="email">Enter your New Password</label>
         <input
           type="password"
-          id="password"
-          name="password"
+          id="newpassword"
+          name="newpassword"
           placeholder="New Password"
           value={data.password}
           onChange={props.onChange}

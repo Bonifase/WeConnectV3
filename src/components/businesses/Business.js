@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Header, Card, Icon, List } from "semantic-ui-react";
+import { Link } from "react-router-dom";
+import { Header, Icon } from "semantic-ui-react";
 import "./BusinessForm.css";
 
 export default function Business({ business, reviews, deleteBusiness }) {
@@ -12,36 +13,36 @@ export default function Business({ business, reviews, deleteBusiness }) {
           <Header as="h3" dividing>
             <h2>Business Profile</h2>
           </Header>
-          <Card>
-            <Card.Content>
-              <Card.Header>{business.Name}</Card.Header>
-              <Card.Meta>
-                <span className="date">Posted on {business.Created}</span>
-              </Card.Meta>
-            </Card.Content>
-            <Card.Content extra>Category: {business.Category}</Card.Content>
-            <Card.Content extra>
-              <List.Icon name="users" />
-              Dealers in: {business.Description}
-            </Card.Content>
-            <Card.Content extra>
-              <List.Icon name="marker" />
+          <div>
+            <h1 className="display-4">{business.Name}</h1>
+            <p className="lead">Posted on {business.Created}</p>
+            <hr className="my-4" />
+            <p>Category: {business.Category}</p>
+            <p>
               <a>Located at:</a> {business.Location}
-            </Card.Content>
-            <Card.Content extra>
-              <a>
-                <Icon name="discussions" />
-                Reviews
-              </a>
-            </Card.Content>
-          </Card>
+            </p>
+            <Link
+              className="btn btn-primary btn-lg"
+              to={`/businesses/${business._id}/reviews`}
+              role="button"
+            >
+              <Icon name="discussions" />
+              Reviews
+            </Link>
+          </div>
         </div>
       </div>
       <div className="column">
         <div className="reviews">
-          <Header as="h3" dividing>
-            <h2>Reviews</h2>
-          </Header>
+          <Link
+            className="btn btn-primary btn-lg"
+            to="/businesses"
+            role="button"
+          >
+            <Icon name="discussions" />
+            Back to businesses
+          </Link>
+
           <div className="reviews ui four cards">{reviews}</div>
         </div>
       </div>

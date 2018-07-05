@@ -52,7 +52,7 @@ class AddReviewForm extends Component {
     this.setState({ errors });
 
     if (true) {
-      console.log("props", this.state.props);
+      console.log("props", this.props);
       const { description, reviewbody } = this.state;
       this.setState({ loading: true });
       this.props
@@ -92,7 +92,7 @@ class AddReviewForm extends Component {
                   <label htmlFor="author">Author:</label>
                   <input
                     name="author"
-                    // value={author}
+                    value={this.props.ReviewAuthor}
                     onChange={this.handleChange}
                     id="author"
                   />
@@ -135,7 +135,8 @@ function mapStateToProps(state, props) {
       business: state.businesses.find(
         item => item._id === props.match.params._id
       ),
-      user: state.user.username
+
+      ReviewAuthor: state.user.username
     };
   }
   return { business: null };
