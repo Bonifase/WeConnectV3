@@ -1,6 +1,6 @@
 import { USER_LOGGED_IN, USER_LOGGED_OUT, LINK_GENERATED } from "../types";
 
-export default function user(state = {}, action = {}) {
+function user(state = {}, action = {}) {
   switch (action.type) {
     case USER_LOGGED_IN:
       return action.user;
@@ -12,3 +12,4 @@ export default function user(state = {}, action = {}) {
       return state;
   }
 }
+export default user;

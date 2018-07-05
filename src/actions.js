@@ -5,6 +5,7 @@ export const BUSINESS_FETCHED = "BUSINESS_FETCHED";
 export const BUSINESS_DELETED = "BUSINESS_DELETED";
 export const REVIEW_ADDED = "REVIEW_ADDED";
 export const SET_REVIEWS = "SET_REVIEWS";
+export const FILTERED_BUSINESSES = "FILTERED_BUSINESSES";
 
 function handleResponce(response) {
   if (response.ok) {
@@ -39,6 +40,12 @@ export function businessDeleted(businessId) {
   return {
     type: BUSINESS_DELETED,
     businessId
+  };
+}
+export function filteredBusinesses(filteredBusinesses) {
+  return {
+    type: FILTERED_BUSINESSES,
+    filteredBusinesses
   };
 }
 
@@ -87,17 +94,16 @@ export function updateBusiness(data, weconnectJWT) {
         Authorization: "Bearer " + token,
         "content-Type": "application/json"
       }
-    })
-      .then(data => dispatch(businessUpdated(data.message)))
-      .catch(error => {
-        dispatch(
-          errorOccured(
-            error.response.data.msg
-              ? error.response.data.msg
-              : error.response.data.message
-          )
-        );
-      });
+    }).then(data => dispatch(businessUpdated(data.message)));
+    // .catch(error => {
+    //   dispatch(
+    //     errorOccured(
+    //       error.response.msg
+    //         ? error.response.msg
+    //         : error.response.message
+    //     )
+    //   );
+    // });
   };
 }
 export function deleteBusiness(id, weconnectJWT) {
@@ -129,6 +135,7 @@ export function fetchBusinesses() {
   };
 }
 export function fetchBusiness(id) {
+  console.log("this is me", id);
   return dispatch => {
     fetch(`https://weconnectv2.herokuapp.com/api/v2/businesses/${id}`)
       .then(res => res.json())
@@ -151,10 +158,36 @@ export function addReview(data, _id) {
   };
 }
 export function fetchReviews(_id) {
-  console.log("this is a token", _id);
   return dispatch => {
     fetch(`https://weconnectv2.herokuapp.com/api/v2/${_id}/reviews`)
       .then(res => res.json())
       .then(data => dispatch(setReviews(data.Reviews)));
   };
+}
+export function getFilteredBusinesses(query, category, location) {
+  if (query) {
+    return dispatch => {
+      fetch(
+        `https://weconnectv2.herokuapp.com/api/v2/businesses/search?${query}`
+      )
+        .then(response => response.json())
+        .then(data => dispatch(filteredBusinesses(data.filteredBusinesses)));
+    };
+  } else if (category) {
+    return dispatch => {
+      fetch(
+        `https://weconnectv2.herokuapp.com/api/v2/businesses/search?${category}`
+      )
+        .then(response => response.json())
+        .then(data => dispatch(filteredBusinesses(data.filteredBusinesses)));
+    };
+  } else if (location) {
+    return dispatch => {
+      fetch(
+        `https://weconnectv2.herokuapp.com/api/v2/businesses/search?${location}`
+      )
+        .then(response => response.json())
+        .then(data => dispatch(filteredBusinesses(data.filteredBusinesses)));
+    };
+  }
 }

@@ -76,11 +76,11 @@ class BusinessForm extends Component {
             });
             this.props.history.push("/businesses");
           }
-        })
-        .catch(err => {
-          console.log("erroreerererer", err);
-          this.setState({ errors: this.props.update_error, loading: false });
         });
+      // .catch(err => {
+      //   console.log("erroreerererer", err);
+      //   this.setState({ errors: this.props.update_error, loading: false });
+      // });
     }
   };
   render() {

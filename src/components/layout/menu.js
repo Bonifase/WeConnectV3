@@ -7,35 +7,22 @@ import { Dropdown, Menu } from "semantic-ui-react";
 const TopNavigation = ({ user, logout, isAuthenticated }) => (
   <Menu>
     {isAuthenticated ? (
-      <Link className="item" to="/businesses">
+      <a className="item" href="/businesses">
         Dashboard
-      </Link>
+      </a>
     ) : (
-      <Link className="item" to="/businesses">
+      <a className="item" href="/businesses">
         All Busisesses
-      </Link>
+      </a>
     )}
-    <Dropdown text="Filter Busisesses" pointing className="link item">
-      <Dropdown.Menu>
-        <Dropdown.Item>
-          <Dropdown text="Category">
-            <Dropdown.Menu>
-              <Dropdown.Header>Shops</Dropdown.Header>
-              <Dropdown.Item>Hotels</Dropdown.Item>
-              <Dropdown.Item>Software</Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
-        </Dropdown.Item>
-        <Dropdown.Item>Location</Dropdown.Item>
-      </Dropdown.Menu>
-    </Dropdown>
+
     {isAuthenticated ? (
       <Link className="item" to="/add-business">
-        Add a business
+        Post Business
       </Link>
     ) : (
       <Link className="item" to="/login">
-        Login to Post a Business
+        Login to Post Business
       </Link>
     )}
   </Menu>

@@ -37,3 +37,17 @@
   margin: 0 auto;
   padding: 30;
 }
+
+.jumbotron {
+  background: #ccc;
+  color: black;
+  width: 300px;
+  height: 100px;
+  padding: 50px;
+  border: 1px solid red;
+}
+
+.style {
+  border: 1px solid transparent;
+  border-color: rgb(18, 139, 160);
+}

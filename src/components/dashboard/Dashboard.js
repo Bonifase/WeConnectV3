@@ -6,6 +6,7 @@ import { Comment } from "semantic-ui-react";
 import { fetchBusinesses, deleteBusiness } from "../../actions";
 import TopNavigationBar from "../layout/menu";
 import FlashMessagesList from "../messages/FlashMessagesList";
+import Search from "../businesses/SearchBusiness";
 import "./Dashboard.css";
 
 class Dashboard extends Component {
@@ -27,10 +28,14 @@ class Dashboard extends Component {
                 )}
               </Comment.Metadata>
               <TopNavigationBar />
-              <h2> Reviewed Businesses </h2>
-              <br />
+              <p>
+                <h2> Reviewed Businesses </h2>
+              </p>
+
+              <Search />
               <br />
               <BusinessList
+                filteredBusinesses={this.props.filteredBusinesses}
                 businesses={this.props.businesses}
                 deleteBusiness={this.props.deleteBusiness}
               />
@@ -53,7 +58,8 @@ function mapStateToProps(state) {
   return {
     isAuthenticated: !!state.user.access_token,
     businesses: state.businesses,
-    user: state.user.username
+    user: state.user.username,
+    filteredBusinesses: state.filteredBusinesses
   };
 }
 export default connect(

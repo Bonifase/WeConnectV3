@@ -56,7 +56,6 @@ function BusinessCard({ isAuthenticated, reviews, business, deleteBusiness }) {
                       {"Reviews "}
                       <span className="comment-count">
                         <span className="speech-bubble" />
-                        {reviews ? reviews.length : 0}
                       </span>
                     </Link>
                   </div>
@@ -124,13 +123,17 @@ function BusinessCard({ isAuthenticated, reviews, business, deleteBusiness }) {
 BusinessCard.ProtoTypes = {
   isAuthenticated: PropTypes.bool.isRequired,
   deleteBusiness: PropTypes.func.isRequired,
-  reviews: PropTypes.array.isRequired
+  reviews: PropTypes.array.isRequired,
+  owner: PropTypes.number.isRequired,
+  businessId: PropTypes.number.isRequired
 };
 
 function mapStateToProps(state) {
   return {
     isAuthenticated: !!state.user.access_token,
-    reviews: state.reviews
+    reviews: state.reviews,
+    owner: state.user._id,
+    businessId: state.business.owner
   };
 }
 export default connect(mapStateToProps)(BusinessCard);
