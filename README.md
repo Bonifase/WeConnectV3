@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/Bonifase/WeConnectV3.svg?branch=develop)](https://travis-ci.org/Bonifase/WeConnectV3) [![Coverage Status](https://coveralls.io/repos/github/Bonifase/WeConnectV3/badge.svg?branch=develop)](https://coveralls.io/github/Bonifase/WeConnectV3?branch=develop) [![Maintainability](https://api.codeclimate.com/v1/badges/7bd10832894d14f11f58/maintainability)](https://codeclimate.com/github/Bonifase/WeConnectV3/maintainability)
+[![Build Status](https://travis-ci.org/Bonifase/WeConnectV3.svg?branch=develop)](https://travis-ci.org/Bonifase/WeConnectV3) [![Coverage Status](https://coveralls.io/repos/github/Bonifase/WeConnectV3/badge.svg?branch=develop)](https://coveralls.io/github/Bonifase/WeConnectV3?branch=develop) [![Maintainability](https://api.codeclimate.com/v1/badges/7bd10832894d14f11f58/maintainability)](https://codeclimate.com/github/Bonifase/WeConnectV3/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/7bd10832894d14f11f58/test_coverage)](https://codeclimate.com/github/Bonifase/WeConnectV3/test_coverage)
 
 # WeConnect App
 
