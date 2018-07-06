@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { Icon } from "semantic-ui-react";
-import ConfirmDeleteBusiness from "./ConfirmDeleteBusiness";
 
 function BusinessCard({ isAuthenticated, reviews, business, deleteBusiness }) {
   return (
@@ -11,7 +10,9 @@ function BusinessCard({ isAuthenticated, reviews, business, deleteBusiness }) {
       <div className="content">
         <div className="ui raised card">
           <div className="content">
-            <div className="header"> {business.Business_Name}</div>
+            <div className="header">
+              <a class="ui large blue ribbon label">{business.Business_Name}</a>{" "}
+            </div>
           </div>
           <div className="content">
             <h4 className="ui sub header">Details</h4>
