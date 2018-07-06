@@ -18,7 +18,6 @@ WeConnect provides a platform that brings businesses and individuals together. T
 ## Getting started
 
 1.  Clone this repo using `git clone https://github.com/Bonifase/WeConnectV3.git`.
-
 2.  Run `npm install` to install the dependencies.
 
 3.  Run `npm start` to start the local web server.

@@ -10,7 +10,9 @@ function BusinessCard({ isAuthenticated, reviews, business, deleteBusiness }) {
       <div className="content">
         <div className="ui raised card">
           <div className="content">
-            <div className="header"> {business.Business_Name}</div>
+            <div className="header">
+              <a class="ui large blue ribbon label">{business.Business_Name}</a>{" "}
+            </div>
           </div>
           <div className="content">
             <h4 className="ui sub header">Details</h4>
