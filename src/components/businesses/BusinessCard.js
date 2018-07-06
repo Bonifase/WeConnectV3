@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { Icon } from "semantic-ui-react";
-import ConfirmDeleteBusiness from "./ConfirmDeleteBusiness";
 
 function BusinessCard({ isAuthenticated, reviews, business, deleteBusiness }) {
   return (

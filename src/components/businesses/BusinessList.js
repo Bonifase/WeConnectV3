@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import BusinessCard from "./BusinessCard";
+import Pagination from "../pagination/Pagination";
 
 class BusinessList extends React.Component {
   render() {
@@ -23,7 +24,16 @@ class BusinessList extends React.Component {
         ))}
       </div>
     );
-    return <div>{container.length === 0 ? emptyMessage : businessList}</div>;
+    return (
+      <div>
+        <div>{container.length === 0 ? emptyMessage : businessList}</div>
+        <div>
+          <div className>
+            <Pagination />
+          </div>
+        </div>
+      </div>
+    );
   }
 }
 
