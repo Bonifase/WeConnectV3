@@ -8,6 +8,7 @@ import TopNavigationBar from "../layout/menu";
 import FlashMessagesList from "../messages/FlashMessagesList";
 import Search from "../businesses/SearchBusiness";
 import "./Dashboard.css";
+import Pagination from "../pagination/Pagination";
 
 class Dashboard extends Component {
   componentWillMount() {
@@ -54,7 +55,6 @@ Dashboard.propTypes = {
   deleteBusiness: PropTypes.func.isRequired
 };
 function mapStateToProps(state) {
-  console.log("the whole state is ", state);
   return {
     isAuthenticated: !!state.user.access_token,
     businesses: state.businesses,

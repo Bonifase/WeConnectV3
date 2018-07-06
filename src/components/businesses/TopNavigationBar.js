@@ -4,7 +4,7 @@ import SearchBusiness from "../businesses/SearchBusiness";
 
 const TopNavigation = ({ user, logout, hasBusiness, isAuthenticated }) => (
   <div class="ui pointing menu">
-    <Link class="item" to="dashboard">
+    <Link class="item" to="businesses">
       All Businesses
     </Link>
 
