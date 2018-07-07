@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import AddBusinessForm from "./AddBusinessForm";
 import { saveBusiness } from "../../actions";
 import { addFlashMessage } from "../../actions/FlashMessages";
-import { CommentAuthor } from "semantic-ui-react";
 
 const validate = data => {
   const errors = {};

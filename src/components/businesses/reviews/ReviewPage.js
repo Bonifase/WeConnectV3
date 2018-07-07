@@ -36,7 +36,8 @@ function mapStateToProps(state) {
   console.log("tese2", state.reviews.Reviews);
   return {
     isAuthenticated: !!state.user.token,
-    reviews: state.reviews
+    reviews: state.reviews,
+    business: state.business
   };
 }
 export default connect(

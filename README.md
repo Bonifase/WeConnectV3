@@ -47,4 +47,4 @@ The folder structure of the JS files reflects how [Redux](https://github.com/gae
 
 ## License
 
-This project is not licenced.
+Designed and developed by [Bonifase Orwa](https://github.com/Bonifase).

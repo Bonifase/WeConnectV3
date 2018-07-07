@@ -105,20 +105,25 @@ export function updateBusiness(data, weconnectJWT) {
     // });
   };
 }
-export function deleteBusiness(id, weconnectJWT) {
+export function deleteBusiness(id, weconnectJWT, owner, ownerId) {
   let token = JSON.parse(localStorage.getItem("weconnectJWT"));
-  console.log("this is a id", id);
-  return dispatch => {
-    return fetch(`https://weconnectv2.herokuapp.com/api/v2/businesses/${id}`, {
-      method: "delete",
-      headers: {
-        Authorization: "Bearer " + token,
-        "content-Type": "application/json"
-      }
-    })
-      .then(handleResponce)
-      .then(data => dispatch(businessDeleted(id)));
-  };
+  console.log("this is a id", owner);
+  if (ownerId === owner) {
+    return dispatch => {
+      return fetch(
+        `https://weconnectv2.herokuapp.com/api/v2/businesses/${id}`,
+        {
+          method: "delete",
+          headers: {
+            Authorization: "Bearer " + token,
+            "content-Type": "application/json"
+          }
+        }
+      )
+        .then(handleResponce)
+        .then(data => dispatch(businessDeleted(id)));
+    };
+  }
 }
 
 export function fetchBusinesses() {
