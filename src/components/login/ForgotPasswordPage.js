@@ -6,7 +6,6 @@ import isEmail from "validator/lib/isEmail";
 import ForgotPasswordForm from "./ForgotPasswordForm";
 import { resetPasswordRequest } from "../../actions/auth";
 import "../businesses/BusinessForm.css";
-import Navbar from "../navbar/Navbar";
 
 const validate = data => {
   const errors = {};
