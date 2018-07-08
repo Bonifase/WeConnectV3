@@ -131,7 +131,7 @@ export function deleteBusiness(id, weconnectJWT, owner, ownerId) {
 export function fetchBusinesses(page) {
   return dispatch => {
     fetch(
-      `https://weconnectv2.herokuapp.com/api/v2/businesses/search?limit=4&${page}`
+      `https://weconnectv2.herokuapp.com/api/v2/businesses/search?limit=3&${page}`
     )
       .then(res => res.json())
       .then(data => {
