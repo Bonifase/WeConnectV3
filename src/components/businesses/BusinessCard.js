@@ -4,13 +4,23 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { Icon } from "semantic-ui-react";
 
-function BusinessCard({ isAuthenticated, reviews, business, deleteBusiness }) {
+function BusinessCard({
+  isAuthenticated,
+  reviews,
+  business,
+  deleteBusiness,
+  user,
+  ownerId
+}) {
+  console.log("owner", user);
   return (
     <div>
       <div className="content">
         <div className="ui raised card">
           <div className="content">
-            <div className="header"> {business.Business_Name}</div>
+            <div className="header">
+              <a class="ui large blue ribbon label">{business.Business_Name}</a>{" "}
+            </div>
           </div>
           <div className="content">
             <h4 className="ui sub header">Details</h4>
@@ -131,8 +141,8 @@ function mapStateToProps(state) {
   return {
     isAuthenticated: !!state.user.access_token,
     reviews: state.reviews,
-    owner: state.user._id,
-    businessId: state.business.owner
+    user: state.user._id,
+    ownerId: state.business.owner
   };
 }
 export default connect(mapStateToProps)(BusinessCard);

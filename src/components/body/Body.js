@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Button } from "semantic-ui-react";
 
 const linkStyle = {
   color: "white",
@@ -38,10 +37,12 @@ class Body extends Component {
                   </a>
                 </div>
                 <div className="center aligned column">
-                  <div className="ui big green labeled icon button">
-                    <i className="signup icon" />
-                    <a href="signup">Sign Up</a>
-                  </div>
+                  <a href="signup">
+                    <div className="ui big green labeled icon button">
+                      <i className="signup icon" />
+                      Sign Up
+                    </div>
+                  </a>
                 </div>
               </div>
             </div>

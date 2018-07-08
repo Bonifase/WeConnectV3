@@ -78,7 +78,6 @@ export function setReviews(Reviews) {
 }
 export function saveBusiness(data, weconnectJWT) {
   let token = JSON.parse(localStorage.getItem("weconnectJWT"));
-  console.log("this is a token", token);
   return dispatch => {
     return fetch("https://weconnectv2.herokuapp.com/api/v2/businesses", {
       method: "post",
@@ -113,8 +112,9 @@ export function updateBusiness(data, weconnectJWT) {
     // });
   };
 }
-export function deleteBusiness(id, weconnectJWT) {
+export function deleteBusiness(id, weconnectJWT, owner, ownerId) {
   let token = JSON.parse(localStorage.getItem("weconnectJWT"));
+
   return dispatch => {
     return fetch(`https://weconnectv2.herokuapp.com/api/v2/businesses/${id}`, {
       method: "delete",
@@ -131,7 +131,7 @@ export function deleteBusiness(id, weconnectJWT) {
 export function fetchBusinesses(page) {
   return dispatch => {
     fetch(
-      `https://weconnectv2.herokuapp.com/api/v2/businesses/search?limit=2&${page}`
+      `https://weconnectv2.herokuapp.com/api/v2/businesses/search?limit=4&${page}`
     )
       .then(res => res.json())
       .then(data => {

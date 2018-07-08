@@ -1,8 +1,16 @@
 {
+    "presets": [
+        ["env", {
+            "modules": false
+        }]
+    ],
+
+    "plugins": ["syntax-dynamic-import"],
+
     "env": {
         "test": {
             "presets": ["env", "react"],
-            "plugins": ["transform-export-extensions", "add-module-exports"],
+            "plugins": ["transform-es2015-modules-commonjs"],
             "only": [
                 "./**/*.js",
                 "node_modules/jest-runtime"
