@@ -1,12 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 import BusinessCard from "./BusinessCard";
-import Pagination from "../pagination/Pagination";
 
 class BusinessList extends React.Component {
   render() {
     const { businesses, filteredBusinesses, deleteBusiness } = this.props;
-    const emptyMessage = <p>There are no businesses yet in your collection</p>;
+    const emptyMessage = <p>There are no businesses yet in this page</p>;
     let container;
     if (filteredBusinesses.length === 0) {
       container = businesses;
@@ -28,9 +27,7 @@ class BusinessList extends React.Component {
       <div>
         <div>{container.length === 0 ? emptyMessage : businessList}</div>
         <div>
-          <div className>
-            <Pagination />
-          </div>
+          <div className />
         </div>
       </div>
     );
@@ -40,6 +37,7 @@ class BusinessList extends React.Component {
 BusinessList.propTypes = {
   businesses: PropTypes.array.isRequired,
   filteredBusinesses: PropTypes.array.isRequired,
+  paginatedItems: PropTypes.array.isRequired,
   deleteBusiness: PropTypes.func.isRequired
 };
 

@@ -6,6 +6,7 @@ export const BUSINESS_DELETED = "BUSINESS_DELETED";
 export const REVIEW_ADDED = "REVIEW_ADDED";
 export const SET_REVIEWS = "SET_REVIEWS";
 export const FILTERED_BUSINESSES = "FILTERED_BUSINESSES";
+export const SET_PAGINATION = "SET_PAGINATION";
 
 function handleResponce(response) {
   if (response.ok) {
@@ -28,6 +29,12 @@ export function setBusinesses(businesses) {
   return {
     type: SET_BUSINESSES,
     businesses
+  };
+}
+export function pagination(pagination) {
+  return {
+    type: SET_PAGINATION,
+    pagination
   };
 }
 export function businessUpdated(business) {
@@ -62,6 +69,7 @@ export function reviewAdded(review) {
     review
   };
 }
+
 export function setReviews(Reviews) {
   return {
     type: SET_REVIEWS,
@@ -83,7 +91,6 @@ export function saveBusiness(data, weconnectJWT) {
 }
 export function updateBusiness(data, weconnectJWT) {
   let token = JSON.parse(localStorage.getItem("weconnectJWT"));
-  console.log("this is a token", data);
   return dispatch => {
     return axios({
       method: "PUT",
@@ -107,39 +114,40 @@ export function updateBusiness(data, weconnectJWT) {
 }
 export function deleteBusiness(id, weconnectJWT, owner, ownerId) {
   let token = JSON.parse(localStorage.getItem("weconnectJWT"));
-  console.log("this is a id", owner);
-  if (ownerId === owner) {
-    return dispatch => {
-      return fetch(
-        `https://weconnectv2.herokuapp.com/api/v2/businesses/${id}`,
-        {
-          method: "delete",
-          headers: {
-            Authorization: "Bearer " + token,
-            "content-Type": "application/json"
-          }
-        }
-      )
-        .then(handleResponce)
-        .then(data => dispatch(businessDeleted(id)));
-    };
-  }
+
+  return dispatch => {
+    return fetch(`https://weconnectv2.herokuapp.com/api/v2/businesses/${id}`, {
+      method: "delete",
+      headers: {
+        Authorization: "Bearer " + token,
+        "content-Type": "application/json"
+      }
+    })
+      .then(handleResponce)
+      .then(data => dispatch(businessDeleted(id)));
+  };
 }
 
-export function fetchBusinesses() {
+export function fetchBusinesses(page) {
   return dispatch => {
-    fetch("https://weconnectv2.herokuapp.com/api/v2/businesses")
+    fetch(
+      `https://weconnectv2.herokuapp.com/api/v2/businesses/search?limit=4&${page}`
+    )
       .then(res => res.json())
       .then(data => {
         let businesses = data.businesses;
+        let pages = data.total_pages;
         if (!businesses) businesses = [];
 
         dispatch(setBusinesses(businesses));
+        dispatch(pagination(data.pagination));
       });
+    // .catch(err => {
+    //   dispatch(handleResponce(err.response.data.msg));
+    // });
   };
 }
 export function fetchBusiness(id) {
-  console.log("this is me", id);
   return dispatch => {
     fetch(`https://weconnectv2.herokuapp.com/api/v2/businesses/${id}`)
       .then(res => res.json())
