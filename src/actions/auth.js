@@ -17,13 +17,18 @@ export const linkGenerated = resetLink => ({
 
 export const login = credentials => dispatch =>
   api.user.login(credentials).then(user => {
-    const { access_token } = user;
+    console.log(user);
+    const { access_token, userId, username } = user;
     localStorage.setItem("weconnectJWT", JSON.stringify(access_token));
+    localStorage.setItem("userId", JSON.stringify(userId));
+    localStorage.setItem("username", JSON.stringify(username));
     dispatch(userLoggedIn(user));
   });
 
 export const logout = () => dispatch => {
   localStorage.removeItem("weconnectJWT");
+  localStorage.removeItem("userId");
+  localStorage.removeItem("username");
   dispatch(userLoggedOut());
 };
 

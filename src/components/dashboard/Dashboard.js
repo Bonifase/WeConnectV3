@@ -45,7 +45,9 @@ class Dashboard extends Component {
               <FlashMessagesList />
               <Comment.Metadata>
                 {this.props.isAuthenticated ? (
-                  <div>You are logged in as {this.props.user}</div>
+                  <div>
+                    You are logged in as {localStorage.getItem("username")}
+                  </div>
                 ) : (
                   <div>Login to unlock awesomeness</div>
                 )}

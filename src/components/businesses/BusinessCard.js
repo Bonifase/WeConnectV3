@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { Icon } from "semantic-ui-react";
+import { userInfo } from "os";
 
 function BusinessCard({
   isAuthenticated,
@@ -12,12 +13,14 @@ function BusinessCard({
   user,
   ownerId
 }) {
-  console.log("owner", user);
   return (
     <div>
       <div className="content">
-        <div className="ui raised card">
-          <div className="content">
+        <div className="ui raised card" style={{ minHeight: "425px" }}>
+          <div
+            className="content"
+            style={{ maxHeight: "60px", boxSizing: "border-box" }}
+          >
             <div className="header">
               <a class="ui large blue ribbon label">{business.Business_Name}</a>{" "}
             </div>
@@ -84,7 +87,8 @@ function BusinessCard({
               <div className="event">
                 <div className="content">
                   <div className="summary">
-                    {isAuthenticated ? (
+                    {isAuthenticated &&
+                    user.toString() === business.owner.toString() ? (
                       <div className="extra content">
                         <div className="ui two buttons">
                           <Link
@@ -141,8 +145,7 @@ function mapStateToProps(state) {
   return {
     isAuthenticated: !!state.user.access_token,
     reviews: state.reviews,
-    user: state.user._id,
-    ownerId: state.business.owner
+    user: localStorage.getItem("userId")
   };
 }
 export default connect(mapStateToProps)(BusinessCard);

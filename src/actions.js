@@ -100,16 +100,11 @@ export function updateBusiness(data, weconnectJWT) {
         Authorization: "Bearer " + token,
         "content-Type": "application/json"
       }
-    }).then(data => dispatch(businessUpdated(data.message)));
-    // .catch(error => {
-    //   dispatch(
-    //     errorOccured(
-    //       error.response.msg
-    //         ? error.response.msg
-    //         : error.response.message
-    //     )
-    //   );
-    // });
+    })
+      .then(data => dispatch(businessUpdated(data.message)))
+      .catch(error => {
+        dispatch(errorOccured("Business name already exists"));
+      });
   };
 }
 export function deleteBusiness(id, weconnectJWT, owner, ownerId) {
@@ -176,14 +171,17 @@ export function fetchReviews(_id) {
       .then(data => dispatch(setReviews(data.Reviews)));
   };
 }
-export function getFilteredBusinesses(query, category, location) {
+export function getFilteredBusinesses(query, page, category, location) {
   if (query) {
+    let pages = "page=" + page;
     return dispatch => {
       fetch(
-        `https://weconnectv2.herokuapp.com/api/v2/businesses/search?${query}`
+        `https://weconnectv2.herokuapp.com/api/v2/businesses/search?limit=3&${pages}&${query}`
       )
         .then(response => response.json())
-        .then(data => dispatch(filteredBusinesses(data.filteredBusinesses)));
+        .then(data => {
+          dispatch(filteredBusinesses(data.filteredBusinesses));
+        });
     };
   } else if (category) {
     return dispatch => {
