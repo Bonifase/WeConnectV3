@@ -108,6 +108,7 @@
   "jest": {
     "modulePaths": ["/shared/vendor/modules"],
     "moduleFileExtensions": ["js", "jsx"],
+    "collectCoverage": true,
     "transformIgnorePatterns": [
       "<rootDir>/node_modules"
     ],

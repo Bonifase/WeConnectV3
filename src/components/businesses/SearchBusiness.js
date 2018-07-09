@@ -9,7 +9,8 @@ class Search extends Component {
     query: "",
     category: "",
     location: "",
-    results: []
+    results: [],
+    page: 1
   };
 
   handleInputChange = () => {
@@ -20,10 +21,11 @@ class Search extends Component {
         location: "category=" + this.location.value
       },
       () => {
+        let page = this.data.page;
         let query = "q=" + this.search.value;
         if (query && query.length > 2) {
           if (query.length % 2 === 0) {
-            this.props.getFilteredBusinesses(query);
+            this.props.getFilteredBusinesses(query, page);
           }
         }
         let category = "category=" + this.category.value;
