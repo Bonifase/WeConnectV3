@@ -8,14 +8,14 @@ import "../businesses/BusinessForm.css";
 
 const validate = data => {
   const errors = {};
-  if (!data.newpassword) errors.newpassword = "Can't be blank";
+  if (!data.new_password) errors.new_password = "Can't be blank";
   return errors;
 };
 class ResetPasswordPage extends Component {
   state = {
     success: false,
     data: {
-      newpassword: ""
+      new_password: ""
     },
     loading: false,
     errors: {}
@@ -34,7 +34,10 @@ class ResetPasswordPage extends Component {
     if (Object.keys(errors).length === 0) {
       this.setState({ loading: true });
       axios
-        .post(`https://weconnectv2.herokuapp.com${this.props.resetLink}`, {})
+        .post(
+          `https://weconnectv2.herokuapp.com${this.props.resetLink}`,
+          this.state.data
+        )
         .then(() => {
           this.setState({ loading: false });
           this.props.addFlashMessage({

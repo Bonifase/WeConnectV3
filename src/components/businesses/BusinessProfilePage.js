@@ -36,7 +36,6 @@ BusinessProfilePage.propTypes = {
   fetchReviews: PropTypes.func.isRequired
 };
 function mapStateToProps(state) {
-  console.log("state", state.reviews);
   return {
     isAuthenticated: !!state.user.token,
     business: state.business,

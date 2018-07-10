@@ -86,7 +86,9 @@ export function saveBusiness(data, weconnectJWT) {
         Authorization: "Bearer " + token,
         "content-Type": "application/json"
       }
-    }).then(handleResponce);
+    }).catch(error => {
+      dispatch(errorOccured("Token expired, please Login and try again"));
+    });
   };
 }
 export function updateBusiness(data, weconnectJWT) {

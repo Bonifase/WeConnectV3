@@ -33,7 +33,6 @@ ReviewPage.propTypes = {
   fetchReviews: PropTypes.func.isRequired
 };
 function mapStateToProps(state) {
-  console.log("tese2", state.reviews.Reviews);
   return {
     isAuthenticated: !!state.user.token,
     reviews: state.reviews,

@@ -14,7 +14,7 @@ const ResetPasswordForm = props => {
         <input
           type="password"
           id="newpassword"
-          name="newpassword"
+          name="new_password"
           placeholder="New Password"
           value={data.password}
           onChange={props.onChange}
