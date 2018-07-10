@@ -29,17 +29,15 @@ class Search extends Component {
           }
         }
         let category = "category=" + this.category.value;
-        console.log("this is category", category);
         if (category && category.length > 2) {
           if (category.length % 2 === 0) {
-            this.props.getFilteredBusinesses(category);
+            this.props.getFilteredBusinesses(category, page);
           }
         }
         let location = "location=" + this.location.value;
-        console.log("this is location", location);
         if (location && location.length > 2) {
           if (location.length % 2 === 0) {
-            this.props.getFilteredBusinesses(location);
+            this.props.getFilteredBusinesses(location, page);
           }
         }
       }

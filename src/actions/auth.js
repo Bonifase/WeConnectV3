@@ -17,7 +17,6 @@ export const linkGenerated = resetLink => ({
 
 export const login = credentials => dispatch =>
   api.user.login(credentials).then(user => {
-    console.log(user);
     const { access_token, userId, username } = user;
     localStorage.setItem("weconnectJWT", JSON.stringify(access_token));
     localStorage.setItem("userId", JSON.stringify(userId));

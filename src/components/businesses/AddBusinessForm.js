@@ -12,7 +12,6 @@ const formInputStyle = {
 
 const AddBusinessForm = props => {
   const { data, errors, loading } = props.state;
-  console.log("errors", errors);
   return (
     <section className="showcase">
       <div>

@@ -52,7 +52,6 @@ class AddReviewForm extends Component {
     this.setState({ errors });
 
     if (true) {
-      console.log("props", this.props);
       const { description, reviewbody } = this.state;
       this.setState({ loading: true });
       this.props
