@@ -18,8 +18,8 @@ const SignupForm = props => {
         <div>
           <div className="row text-center">
             <div className="showcase-content">
-              <div class="ui two column middle aligned very relaxed stackable grid">
-                <div class="column">
+              <div className="ui two column middle aligned very relaxed stackable grid">
+                <div className="column">
                   <h4>Sign up here</h4>
                   <Form onSubmit={props.onSubmit} loading={loading}>
                     {errors.message && (
@@ -30,7 +30,7 @@ const SignupForm = props => {
                     )}
                     <Form.Field error={!!errors.username}>
                       <label htmlFor="username">Username</label>
-                      <div class="ui left icon input">
+                      <div className="ui left icon input">
                         <input
                           type="text"
                           id="username"
@@ -39,7 +39,7 @@ const SignupForm = props => {
                           value={data.username}
                           onChange={props.onChange}
                         />
-                        <i class="user icon" />
+                        <i className="user icon" />
                       </div>
                       {errors.username && (
                         <InlineError text={errors.username} />
@@ -48,7 +48,7 @@ const SignupForm = props => {
 
                     <Form.Field error={!!errors.email}>
                       <label htmlFor="email">Email</label>
-                      <div class="ui left icon input">
+                      <div className="ui left icon input">
                         <input
                           type="email"
                           id="email"
@@ -57,14 +57,14 @@ const SignupForm = props => {
                           value={data.email}
                           onChange={props.onChange}
                         />
-                        <i class="user icon" />
+                        <i className="user icon" />
                       </div>
                       {errors.email && <InlineError text={errors.email} />}
                     </Form.Field>
 
                     <Form.Field error={!!errors.password}>
                       <label htmlFor="password">Password</label>
-                      <div class="ui left icon input">
+                      <div className="ui left icon input">
                         <input
                           type="password"
                           id="password"
@@ -73,7 +73,7 @@ const SignupForm = props => {
                           value={data.password}
                           onChange={props.onChange}
                         />
-                        <i class="lock icon" />
+                        <i className="lock icon" />
                       </div>
                       {errors.password && (
                         <InlineError text={errors.password} />
@@ -81,7 +81,7 @@ const SignupForm = props => {
                     </Form.Field>
                     <Form.Field error={!!errors.password}>
                       <label htmlFor="cnfpassword"> confirm password</label>
-                      <div class="ui left icon input">
+                      <div className="ui left icon input">
                         <input
                           type="password"
                           id="cnfpassword"
@@ -90,15 +90,15 @@ const SignupForm = props => {
                           value={data.confirmpassword}
                           onChange={props.onChange}
                         />
-                        <i class="lock icon" />
+                        <i className="lock icon" />
                       </div>
                     </Form.Field>
                     <Button primary> Signup </Button>
                   </Form>
                 </div>
-                <div class="center aligned column">
-                  <div class="ui big green labeled icon button">
-                    <i class="tasks icon" />
+                <div className="center aligned column">
+                  <div className="ui big green labeled icon button">
+                    <i className="tasks icon" />
                     <a href="dashboard">Explore</a>
                   </div>
                 </div>

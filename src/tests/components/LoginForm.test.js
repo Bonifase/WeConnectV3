@@ -39,6 +39,18 @@ describe("Login form component", () => {
     const wrapper = setup();
     expect(wrapper.find("Button").length).toEqual(1);
   });
+  it("should have one form element", () => {
+    const wrapper = setup();
+    expect(wrapper.find("Form").length).toEqual(1);
+  });
+  it("should have one Login Header", () => {
+    const wrapper = setup();
+    expect(wrapper.find("h4").length).toEqual(1);
+  });
+  it("should have three columns", () => {
+    const wrapper = setup();
+    expect(wrapper.find("div.column").length).toEqual(3);
+  });
   // in the next two tests i have a problem in accessing the props passed to the component
   it.skip("should have no data in state", () => {
     const wrapper = setup();
