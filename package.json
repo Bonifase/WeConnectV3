@@ -52,56 +52,75 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "jest",
-    "coverarge": " --coverage --coverageReporters=text-lcov | coveralls",
+    "coverage": "--coverage --coverageReporters=text-lcov | coveralls",
     "eject": "react-scripts eject",
     "heroku-postbuild": "npm run build",
     "prebuild": "npm run build:clean",
     "lint": "eslint src",
     "precommit": "lint-staged",
-    "lint-staged": {
-      "src/**/*.{js,jsx,json,css}": [
-        "prettier --write",
-        "git add"
-      ]
-    },
-    "devDependencies": {
-      "@types/jest": "^23.1.4",
-      "babel-plugin-add-module-exports": "^0.3.1",
-      "chai": "^4.1.2",
-      "coveralls": "^3.0.2",
-      "enzyme-adapter-react-16": "^1.1.1",
-      "enzyme-to-json": "^3.3.4",
-      "eslint-config-prettier": "^2.9.0",
-      "eslint-config-standard": "^11.0.0",
-      "eslint-plugin-import": "^2.13.0",
-      "eslint-plugin-node": "^6.0.1",
-      "eslint-plugin-prettier": "^2.6.0",
-      "eslint-plugin-promise": "^3.8.0",
-      "eslint-plugin-standard": "^3.1.0",
-      "husky": "^0.14.3",
-      "identity-obj-proxy": "^3.0.0",
-      "jest": "^23.2.0",
-      "jest-css-modules": "^1.1.0",
-      "jsdom": "^11.11.0",
-      "lint-staged": "^7.2.0",
-      "mocha": "^5.2.0",
-      "prettier": "^1.13.5",
-      "redux-mock-store": "^1.5.3",
-      "remote-redux-devtools": "^0.5.12",
-      "ts-jest": "^23.0.0"
-    },
-    "node": {
-      "global": true
-    },
     "jest": {
-      "modulePaths": ["/shared/vendor/modules"],
-      "moduleFileExtensions": ["js", "jsx"],
-      "collectCoverage": true,
-      "transformIgnorePatterns": ["<rootDir>/node_modules"],
-      "moduleDirectories": ["node_modules", "bower_components", "shared"],
-      "moduleNameMapper": {
-        "\\.(css|scss)$": "identity-obj-proxy"
-      }
+      "setupFiles": [
+        "./src/tests/setup.js"
+      ],
+      "snapshotSerializers": [
+        "enzyme-to-json/serializer"
+      ],
+      "collectCoverage": true
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,json,css}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "devDependencies": {
+    "@types/jest": "^23.1.4",
+    "babel-plugin-add-module-exports": "^0.3.1",
+    "chai": "^4.1.2",
+    "coveralls": "^3.0.2",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.4",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-prettier": "^2.6.0",
+    "eslint-plugin-promise": "^3.8.0",
+    "eslint-plugin-standard": "^3.1.0",
+    "husky": "^0.14.3",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^23.2.0",
+    "jest-css-modules": "^1.1.0",
+    "jsdom": "^11.11.0",
+    "lint-staged": "^7.2.0",
+    "mocha": "^5.2.0",
+    "prettier": "^1.13.7",
+    "redux-mock-store": "^1.5.3",
+    "remote-redux-devtools": "^0.5.12",
+    "ts-jest": "^23.0.0"
+  },
+  "node": {
+    "global": true
+  },
+  "jest": {
+    "modulePaths": [
+      "/shared/vendor/modules"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "jsx"
+    ],
+    "transformIgnorePatterns": [
+      "<rootDir>/node_modules"
+    ],
+    "moduleDirectories": [
+      "node_modules",
+      "bower_components",
+      "shared"
+    ],
+    "moduleNameMapper": {
+      "\\.(css|scss)$": "identity-obj-proxy"
     }
   }
 }
