@@ -1,4 +1,5 @@
 import axios from "axios";
+import swal from "sweetalert";
 export const SET_BUSINESSES = "SET_BUSINESSES";
 export const BUSINESS_UPDATED = "BUSINESS_UPDATED";
 export const BUSINESS_FETCHED = "BUSINESS_FETCHED";
@@ -111,7 +112,6 @@ export function updateBusiness(data, weconnectJWT) {
 }
 export function deleteBusiness(id, weconnectJWT, owner, ownerId) {
   let token = JSON.parse(localStorage.getItem("weconnectJWT"));
-
   return dispatch => {
     return fetch(`https://weconnectv2.herokuapp.com/api/v2/businesses/${id}`, {
       method: "delete",
@@ -133,7 +133,6 @@ export function fetchBusinesses(page) {
       .then(res => res.json())
       .then(data => {
         let businesses = data.businesses;
-        let pages = data.total_pages;
         if (!businesses) businesses = [];
 
         dispatch(setBusinesses(businesses));
@@ -182,7 +181,9 @@ export function getFilteredBusinesses(query, page, category, location) {
       )
         .then(response => response.json())
         .then(data => {
-          dispatch(filteredBusinesses(data.filteredBusinesses));
+          let Businesses = data.filteredBusinesses;
+          if (!Businesses) Businesses = [];
+          dispatch(filteredBusinesses(Businesses));
         });
     };
   } else if (category) {
