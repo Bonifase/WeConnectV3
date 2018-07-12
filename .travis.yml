@@ -10,5 +10,5 @@ script:
   - npm run test -- -u --coverage
 
 after_script:
-  - coveralls < coverarge/lcov.info
+  - npm run coveralls
 
