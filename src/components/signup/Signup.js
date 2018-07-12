@@ -6,10 +6,13 @@ import SignupForm from "./SignupForm";
 import { signup } from "../../actions/users";
 import { addFlashMessage } from "../../actions/FlashMessages";
 
-const validate = data => {
+export const validate = data => {
   const errors = {};
+  if (!data.username) errors.username = "username can't be blank";
   if (!Validator.isEmail(data.email)) errors.email = "Invalid email";
   if (!data.password) errors.password = "Password can't be blank";
+  if (!data.confirm_password)
+    errors.confirm_password = "Password can't be blank";
 
   return errors;
 };
