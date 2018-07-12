@@ -58,6 +58,7 @@
     "prebuild": "npm run build:clean",
     "lint": "eslint src",
     "precommit": "lint-staged",
+    "coverage": "jest --coverage --coverageReporters=text-lcov | coveralls",
     "coveralls": "nyc report --reporter=text-lcov | coveralls"
   },
   "lint-staged": {
