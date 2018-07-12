@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/Bonifase/WeConnectV3.svg?branch=develop)](https://travis-ci.org/Bonifase/WeConnectV3) [![Maintainability](https://api.codeclimate.com/v1/badges/7bd10832894d14f11f58/maintainability)](https://codeclimate.com/github/Bonifase/WeConnectV3/maintainability)
-[![Coverage Status](https://coveralls.io/repos/github/Bonifase/WeConnectV3/badge.svg?branch=develop&service=github)](https://coveralls.io/github/Bonifase/WeConnectV3?branch=develop)
+[![Coverage Status](https://coveralls.io/repos/github/Bonifase/WeConnectV3/badge.svg?branch=ft-jest-tests&service=github)](https://coveralls.io/github/Bonifase/WeConnectV3?branch=ft-jest-tests)
 
 # WeConnect App
 
