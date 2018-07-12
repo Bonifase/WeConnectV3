@@ -45,6 +45,10 @@ The folder structure of the JS files reflects how [Redux](https://github.com/gae
 
 - `utils`: Utility files.
 
+### Runing Tests
+
+- In the `Terminal`: Run `npm test`
+
 ## License
 
 Designed and developed by [Bonifase Orwa](https://github.com/Bonifase).
