@@ -133,7 +133,6 @@ export function fetchBusinesses(page) {
       .then(res => res.json())
       .then(data => {
         let businesses = data.businesses;
-        let pages = data.total_pages;
         if (!businesses) businesses = [];
 
         dispatch(setBusinesses(businesses));
@@ -182,7 +181,8 @@ export function getFilteredBusinesses(query, page, category, location) {
       )
         .then(response => response.json())
         .then(data => {
-          dispatch(filteredBusinesses(data.filteredBusinesses));
+          if (data.businesses.length === 0) data.businesses = [];
+          dispatch(filteredBusinesses(data.businesses));
         });
     };
   } else if (category) {
