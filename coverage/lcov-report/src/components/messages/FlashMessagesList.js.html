@@ -20,31 +20,31 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">20% </span>
+        <span class="strong">78.79% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>1/5</span>
+        <span class='fraction'>26/33</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">66.67% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/0</span>
+        <span class='fraction'>4/6</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">33.33% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/3</span>
+        <span class='fraction'>2/6</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">20% </span>
+        <span class="strong">78.79% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>1/5</span>
+        <span class='fraction'>26/33</span>
       </div>
     </div>
     <p class="quiet">
       Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
     </p>
   </div>
-  <div class='status-line low'></div>
+  <div class='status-line medium'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -82,54 +82,54 @@
 <a name='L34'></a><a href='#L34'>34</a>
 <a name='L35'></a><a href='#L35'>35</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from "react";
+<span class="cline-any cline-yes">2x</span></td><td class="text"><pre class="prettyprint lang-js">import React from "react";
 import FlashMessage from "./FlashMessage";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { deleteFlashMessage } from "../../actions/FlashMessages";
 &nbsp;
 class FlashMessagesList extends React.Component {
-<span class="fstat-no" title="function not covered" >  re</span>nder() {
-    const messages = <span class="cstat-no" title="statement not covered" >this.props.messages.map(<span class="fstat-no" title="function not covered" >me</span>ssage =&gt; (</span>
-<span class="cstat-no" title="statement not covered" >      &lt;FlashMessage</span>
+  render() {
+    const messages = this.props.messages.map(message =&gt; (
+      &lt;FlashMessage
         key={message.id}
         message={message}
         deleteFlashMessage={this.props.deleteFlashMessage}
       /&gt;
     ));
-<span class="cstat-no" title="statement not covered" >    return &lt;div&gt;{messages}&lt;/div&gt;;</span>
+    return &lt;div&gt;{messages}&lt;/div&gt;;
   }
 }
 &nbsp;
@@ -138,8 +138,8 @@ FlashMessagesList.propTypes = {
   deleteFlashMessage: PropTypes.func.isRequired
 };
 &nbsp;
-function <span class="fstat-no" title="function not covered" >mapStateToProps(</span>state) {
-<span class="cstat-no" title="statement not covered" >  return {</span>
+function mapStateToProps(state) {
+  return {
     messages: state.flashMessages
   };
 }
@@ -154,7 +154,7 @@ export default connect(
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun Jul 01 2018 14:45:51 GMT+0300 (EAT)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Jul 12 2018 22:54:38 GMT+0300 (EAT)
 </div>
 </div>
 <script src="../../../prettify.js"></script>

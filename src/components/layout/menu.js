@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import { Dropdown, Menu } from "semantic-ui-react";
+import { Menu } from "semantic-ui-react";
 
 const TopNavigation = ({ user, logout, isAuthenticated }) => (
   <Menu>

@@ -2,9 +2,13 @@ language: node_js
 
 node_js: 
 - stable
+
 before_install:
   - npm install -g npm
 
 script:
-  - npm run test
+  - npm run test -- -u --coverage
+
+after_script:
+  - npm run coverage
 
