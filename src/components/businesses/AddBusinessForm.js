@@ -91,19 +91,13 @@ const AddBusinessForm = props => {
                 </Form>
               </div>
               <div className="center aligned column">
-                <div className="ui big green labeled icon button">
-                  <i className="tasks icon" />
-                  <a href="dashboard">Explore</a>
-                </div>
-              </div>
-            </div>
-            <div style={formInputStyle}>
-              <p style={formInputStyle}>
-                <a style={formInputStyle} href="/businesses">
-                  <i className="backward" />
-                  Back to businesses{" "}
+                <a href="dashboard">
+                  <div className="ui big green labeled icon button">
+                    <i className="tasks icon" />
+                    All Businesses
+                  </div>
                 </a>
-              </p>
+              </div>
             </div>
           </div>
         </div>

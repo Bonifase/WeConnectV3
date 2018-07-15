@@ -97,10 +97,12 @@ const SignupForm = props => {
                   </Form>
                 </div>
                 <div className="center aligned column">
-                  <div className="ui big green labeled icon button">
-                    <i className="tasks icon" />
-                    <a href="dashboard">Explore</a>
-                  </div>
+                  <a href="businesses">
+                    <div className="ui big green labeled icon button">
+                      <i className="tasks icon" />
+                      Explore
+                    </div>
+                  </a>
                 </div>
               </div>
               <div style={formInputStyle}>
