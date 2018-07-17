@@ -6,7 +6,7 @@ import LoginForm from "./LoginForm";
 import { login } from "../../actions/auth";
 import { addFlashMessage } from "../../actions/FlashMessages";
 
-const validate = data => {
+export const validate = data => {
   const errors = {};
   if (!Validator.isEmail(data.email)) errors.email = "Invalid email";
   if (!data.password) errors.password = "Can't be blank";

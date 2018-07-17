@@ -1,5 +1,4 @@
 import React from "react";
-import classnames from "classnames";
 import { Link } from "react-router-dom";
 import { Form, Button, Message } from "semantic-ui-react";
 import InlineError from "../messages/InlineError";
@@ -13,14 +12,13 @@ const formInputStyle = {
 
 const AddBusinessForm = props => {
   const { data, errors, loading } = props.state;
-  console.log("errors", errors);
   return (
     <section className="showcase">
       <div>
         <div className="row text-center">
           <div className="showcase-content">
-            <div class="ui two column middle aligned very relaxed stackable grid">
-              <div class="column">
+            <div className="ui two column middle aligned very relaxed stackable grid">
+              <div className="column">
                 <h4>Post a business</h4>
                 <Form onSubmit={props.onSubmit} loading={loading}>
                   {errors.message && (
@@ -30,7 +28,7 @@ const AddBusinessForm = props => {
                   )}
                   <Form.Field error={!!errors.name}>
                     <label htmlFor="name">Business Name</label>
-                    <div class="ui left icon input">
+                    <div className="ui left icon input">
                       <input
                         type="text"
                         id="name"
@@ -39,14 +37,14 @@ const AddBusinessForm = props => {
                         value={data.username}
                         onChange={props.onChange}
                       />
-                      <i class="home icon" />
+                      <i className="home icon" />
                     </div>
                     {errors.name && <InlineError text={errors.name} />}
                   </Form.Field>
 
                   <Form.Field error={!!errors.category}>
                     <label htmlFor="category">Busines Category</label>
-                    <div class="ui left icon input">
+                    <div className="ui left icon input">
                       <input
                         type="text"
                         id="category"
@@ -55,14 +53,14 @@ const AddBusinessForm = props => {
                         value={data.email}
                         onChange={props.onChange}
                       />
-                      <i class="industry icon" />
+                      <i className="industry icon" />
                     </div>
                     {errors.category && <InlineError text={errors.category} />}
                   </Form.Field>
 
                   <Form.Field error={!!errors.location}>
                     <label htmlFor="location">Business Location</label>
-                    <div class="ui left icon input">
+                    <div className="ui left icon input">
                       <input
                         type="text"
                         id="location"
@@ -71,13 +69,13 @@ const AddBusinessForm = props => {
                         value={data.location}
                         onChange={props.onChange}
                       />
-                      <i class="marker icon" />
+                      <i className="marker icon" />
                     </div>
                     {errors.location && <InlineError text={errors.location} />}
                   </Form.Field>
                   <Form.Field error={!!errors.description}>
                     <label htmlFor="description"> Business Description</label>
-                    <div class="ui left icon input">
+                    <div className="ui left icon input">
                       <input
                         type="text"
                         id="description"
@@ -86,26 +84,20 @@ const AddBusinessForm = props => {
                         value={data.description}
                         onChange={props.onChange}
                       />
-                      <i class="comment alternate icon" />
+                      <i className="comment alternate icon" />
                     </div>
                   </Form.Field>
                   <Button primary> Save </Button>
                 </Form>
               </div>
-              <div class="center aligned column">
-                <div class="ui big green labeled icon button">
-                  <i class="tasks icon" />
-                  <a href="dashboard">Explore</a>
-                </div>
+              <div className="center aligned column">
+                <a href="dashboard">
+                  <div className="ui big green labeled icon button">
+                    <i className="tasks icon" />
+                    All Businesses
+                  </div>
+                </a>
               </div>
-            </div>
-            <div style={formInputStyle}>
-              <p style={formInputStyle}>
-                <Link style={formInputStyle} to="/businesses">
-                  <i className="backward" />
-                  Back to businesses{" "}
-                </Link>
-              </p>
             </div>
           </div>
         </div>

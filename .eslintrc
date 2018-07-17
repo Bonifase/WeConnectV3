@@ -1,4 +1,7 @@
 {
-    "extends": ["react-app", "plugin:prettier/recommended"]
-    
+    "extends": ["react-app", "plugin:prettier/recommended"],
+    "rules": {
+        "jsx-a11y/href-no-hash": "off"
+    }
+
 }

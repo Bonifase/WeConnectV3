@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import AddBusinessForm from "./AddBusinessForm";
 import { saveBusiness } from "../../actions";
 import { addFlashMessage } from "../../actions/FlashMessages";
-import { CommentAuthor } from "semantic-ui-react";
 
 const validate = data => {
   const errors = {};
@@ -45,7 +44,7 @@ class AddBusinessPage extends React.Component {
           this.setState({ loading: false });
           this.props.addFlashMessage({
             type: "success",
-            text: "You have successfully posted ypur business"
+            text: "You have successfully posted your business"
           });
           this.props.history.push("/businesses");
         })

@@ -9,7 +9,8 @@ class Search extends Component {
     query: "",
     category: "",
     location: "",
-    results: []
+    results: [],
+    page: 1
   };
 
   handleInputChange = () => {
@@ -20,24 +21,23 @@ class Search extends Component {
         location: "category=" + this.location.value
       },
       () => {
+        let page = this.data.page;
         let query = "q=" + this.search.value;
         if (query && query.length > 2) {
           if (query.length % 2 === 0) {
-            this.props.getFilteredBusinesses(query);
+            this.props.getFilteredBusinesses(query, page);
           }
         }
         let category = "category=" + this.category.value;
-        console.log("this is category", category);
         if (category && category.length > 2) {
           if (category.length % 2 === 0) {
-            this.props.getFilteredBusinesses(category);
+            this.props.getFilteredBusinesses(category, page);
           }
         }
         let location = "location=" + this.location.value;
-        console.log("this is location", location);
         if (location && location.length > 2) {
           if (location.length % 2 === 0) {
-            this.props.getFilteredBusinesses(location);
+            this.props.getFilteredBusinesses(location, page);
           }
         }
       }
