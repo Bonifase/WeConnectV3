@@ -70,7 +70,9 @@ class Dashboard extends Component {
                   <PaginationLink previous href={pagination.Previous_page} />
                 </PaginationItem>
                 {pagination.total_pages > 1
-                  ? Array.apply(null, { length: pagination.total_pages })
+                  ? Array.apply(null, {
+                      length: pagination.total_pages / pagination.per_page + 1
+                    })
                       .map(Number.call, Number)
                       .map(i => (
                         <PaginationItem
